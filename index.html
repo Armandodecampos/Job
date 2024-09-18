@@ -155,5 +155,38 @@
         // Insert the date string into the div
         dateDiv4.innerText = dateString4;
     </script>
+    
+    <div id="bees" style="background:white;padding:20px;border:1px solid #000;">
+        Ol&#225;, tudo bem?&#8239; 
+<br>
+O @Facilities.Bees est&#225; implementando um novo processo de credenciamento na portaria para melhorar a seguran&#231;a e o gerenciamento de dados. Para realizarmos essa libera&#231;&#227;o, precisamos que seja enviado ao e-mail <strong>facilities.bees@ab-inbev.com</strong>  das seguintes informa&#231;&#245;es:&#8239; 
+<br>
+   	&nbsp;&nbsp;<li>Nome completo:&#8239;</li>
+   	&nbsp;&nbsp;<li>CPF:&#8239;</li>
+   	&nbsp;&nbsp;<li>Email:&#8239;</li>
+   	&nbsp;&nbsp;<li>Telefone (de prefer&#234;ncia, WhatsApp):&#8239;</li>
+<br>
+Com essas informa&#231;&#245;es, nossa equipe ir&#225; gerar um&#8239;link&#8239;contendo um v&#237;deo de poucos minutos com instru&#231;&#245;es de seguran&#231;a sobre o pr&#233;dio. Ap&#243;s assistir ao v&#237;deo completo, voc&#234; receber&#225; a libera&#231;&#227;o para acessar o escrit&#243;rio. Lembre-se de que o anfitri&#227;o &#233; respons&#225;vel por acompanhar os visitantes.&#8239; 
+<br>
+<br>
+Agradecemos a compreens&#227;o e colabora&#231;&#227;o. 
+    </div>
+    <button class="btn" id="button1" onclick="CopyToClipboard('bees')">Copiar</button>
+<br /><br />
+    <script>
+        function CopyToClipboard(containerid) {
+  if (document.selection) {
+    var range = document.body.createTextRange();
+    range.moveToElementText(document.getElementById(containerid));
+    range.select().createTextRange();
+    document.execCommand("copy");
+  } else if (window.getSelection) {
+    var range = document.createRange();
+    range.selectNode(document.getElementById(containerid));
+    window.getSelection().addRange(range);
+    document.execCommand("copy");
+  }
+}
+    </script>
 </body>
 </html>
