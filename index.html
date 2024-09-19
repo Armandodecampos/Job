@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,6 +6,7 @@
     <style>
     body{
     background:#b5bcbb;
+	padding:5%;
     }
     .btn{
     background:#fff;
@@ -23,6 +24,7 @@
     width:100%;
     height:200px;
     border:1px solid #777;
+	max-width: 100%;
     }
     .textarea:focus{
     outline:none;
@@ -31,6 +33,16 @@
     outline:none;
     border:1px solid #777;
     }
+	.box1{
+		background:rgb(255, 215, 95);
+		border:1px solid #000;
+		padding:20px;
+	}
+	.box2{
+		background:rgb(91, 176, 255);
+		border:1px solid #000;
+		padding:20px;
+	}
     </style>
 </head>
 <body>
@@ -155,38 +167,110 @@
         // Insert the date string into the div
         dateDiv4.innerText = dateString4;
     </script>
-    
-    <div id="bees" style="background:white;padding:20px;border:1px solid #000;">
-        Ol&#225;, tudo bem?&#8239; 
+	<br>
+	<br>
+	<br>
+	<h2><p>Modelo de e-mail resposta para pedido de libera&ccedil;&atilde;o fora do novo padr&atilde;o</p></h2>
+	<h2>Bees/Growth</h2>
+	Assunto:
+	<div class="box2">
+		<div id="global-assunto">
+			Fluxo de libera&ccedil;&atilde;o Global
+		</div>
+	</div>
+		<button class="btn" onclick="copyElementToClipboard('global-assunto');">Copiar</button>
+	<br /><br />
+		<script>
+	function copyElementToClipboard(element) {
+	  window.getSelection().removeAllRanges();
+	  let range = document.createRange();
+	  range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
+	  window.getSelection().addRange(range);
+	  document.execCommand('copy');
+	  window.getSelection().removeAllRanges();
+	}
+		</script>
+		Mensagem:
+    <div class="box2">
+    <div id="global">
+		<p>Prezados(as),</p>
 <br>
-O @Facilities.Bees est&#225; implementando um novo processo de credenciamento na portaria para melhorar a seguran&#231;a e o gerenciamento de dados. Para realizarmos essa libera&#231;&#227;o, precisamos que seja enviado ao e-mail <strong>facilities.bees@ab-inbev.com</strong>  das seguintes informa&#231;&#245;es:&#8239; 
+<p>Informamos que implementamos um novo processo para a libera&ccedil;&atilde;o de acesso ao escrit&oacute;rio, visando aprimorar a seguran&ccedil;a e o gerenciamento de dados. A partir de agora, as libera&ccedil;&otilde;es ser&atilde;o realizadas por anfitri&otilde;es no sistema de Portaria Virtual. Os anfitri&otilde;es respons&aacute;veis s&atilde;o Banda V+, BP&rsquo;s e Facilities Global. Para obter a libera&ccedil;&atilde;o de acesso, o anfitri&atilde;o da sua &aacute;rea dever&aacute; cadastr&aacute;-lo na Portaria Virtual com as seguintes informa&ccedil;&otilde;es:</p>
+<li>Nome completo:</li>
+<li>CPF:</li>
+<li>E-mail:</li>
+<li>Telefone (preferencialmente WhatsApp):</li>
+<p>Com essas informa&ccedil;&otilde;es, a Portaria Virtual gerar&aacute; um link contendo um v&iacute;deo de instru&ccedil;&otilde;es de seguran&ccedil;a sobre o pr&eacute;dio. Ap&oacute;s assistir ao v&iacute;deo completo, voc&ecirc; receber&aacute; a autoriza&ccedil;&atilde;o para acessar o escrit&oacute;rio. Lembramos que o anfitri&atilde;o &eacute; respons&aacute;vel por acompanhar os visitantes.</p>
 <br>
-   	&nbsp;&nbsp;<li>Nome completo:&#8239;</li>
-   	&nbsp;&nbsp;<li>CPF:&#8239;</li>
-   	&nbsp;&nbsp;<li>Email:&#8239;</li>
-   	&nbsp;&nbsp;<li>Telefone (de prefer&#234;ncia, WhatsApp):&#8239;</li>
+<p>Para solicita&ccedil;&otilde;es de libera&ccedil;&atilde;o permanente de terceiros, seguem as diretrizes: Somente funcion&aacute;rios GHQ Banda IV+ ou BPs poder&atilde;o solicitar a libera&ccedil;&atilde;o permanente, atrav&eacute;s dos e-mails: liberacao@ab-inbev.com e facilities@ab-inbev.com  No corpo do e-mail, devem ser informados: Nome completo, CPF, e-mail corporativo e telefone do terceiro. Para libera&ccedil;&otilde;es tempor&aacute;rias, com prazo m&aacute;ximo de 90 dias, a solicita&ccedil;&atilde;o pode ser feita por funcion&aacute;rios GHQ Banda V+, BPs ou Facilities.</p>
 <br>
-Com essas informa&#231;&#245;es, nossa equipe ir&#225; gerar um&#8239;link&#8239;contendo um v&#237;deo de poucos minutos com instru&#231;&#245;es de seguran&#231;a sobre o pr&#233;dio. Ap&#243;s assistir ao v&#237;deo completo, voc&#234; receber&#225; a libera&#231;&#227;o para acessar o escrit&#243;rio. Lembre-se de que o anfitri&#227;o &#233; respons&#225;vel por acompanhar os visitantes.&#8239; 
-<br>
-<br>
-Agradecemos a compreens&#227;o e colabora&#231;&#227;o. 
+<p>Agradecemos pela compreens&atilde;o e colabora&ccedil;&atilde;o.</p>
     </div>
-    <button class="btn" id="button1" onclick="CopyToClipboard('bees')">Copiar</button>
+</div>
+    <button class="btn" id="button1" onclick="copyElementToClipboard('global');">Copiar</button>
 <br /><br />
     <script>
-        function CopyToClipboard(containerid) {
-  if (document.selection) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(document.getElementById(containerid));
-    range.select().createTextRange();
-    document.execCommand("copy");
-  } else if (window.getSelection) {
-    var range = document.createRange();
-    range.selectNode(document.getElementById(containerid));
-    window.getSelection().addRange(range);
-    document.execCommand("copy");
-  }
+function copyElementToClipboard(element) {
+  window.getSelection().removeAllRanges();
+  let range = document.createRange();
+  range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
+  window.getSelection().addRange(range);
+  document.execCommand('copy');
+  window.getSelection().removeAllRanges();
 }
     </script>
+	
+	
+	
+	
+	
+	
+	<h2>Bees/Growth</h2>
+	Assunto:
+	<div class="box1">
+		<div id="bees-assunto">
+			Fluxo de libera&ccedil;&atilde;o Bees/Growth
+		</div>
+	</div>
+		<button class="btn" onclick="copyElementToClipboard('bees-assunto');">Copiar</button>
+	<br /><br />
+		<script>
+	function copyElementToClipboard(element) {
+	  window.getSelection().removeAllRanges();
+	  let range = document.createRange();
+	  range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
+	  window.getSelection().addRange(range);
+	  document.execCommand('copy');
+	  window.getSelection().removeAllRanges();
+	}
+		</script>
+		Mensagem:
+    <div class="box1">
+    <div id="bees">
+    <p>Ol&#225;, tudo bem?&#8239;</p>
+<br>
+<p>O @Facilities.Bees est&#225; implementando um novo processo de credenciamento na portaria para melhorar a seguran&#231;a e o gerenciamento de dados. Para realizarmos essa libera&#231;&#227;o, precisamos que seja enviado ao e-mail <strong><a>facilities.bees@ab-inbev.com</a></strong>  das seguintes informa&#231;&#245;es:&#8239;</p>
+<li>Nome completo:</li>
+<li>CPF:</li>
+<li>Email:</li>
+<li>Telefone (de prefer&#234;ncia, WhatsApp):</li>
+<p>Com essas informa&#231;&#245;es, nossa equipe ir&#225; gerar um&#8239;link&#8239;contendo um v&#237;deo de poucos minutos com instru&#231;&#245;es de seguran&#231;a sobre o pr&#233;dio. Ap&#243;s assistir ao v&#237;deo completo, voc&#234; receber&#225; a libera&#231;&#227;o para acessar o escrit&#243;rio. Lembre-se de que o anfitri&#227;o &#233; respons&#225;vel por acompanhar os visitantes.&#8239;</p>
+<br>
+<p>Agradecemos a compreens&#227;o e colabora&#231;&#227;o.</p>
+    </div>
+</div>
+    <button class="btn" id="button1" onclick="copyElementToClipboard('bees');">Copiar</button>
+<br /><br />
+    <script>
+function copyElementToClipboard(element) {
+  window.getSelection().removeAllRanges();
+  let range = document.createRange();
+  range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
+  window.getSelection().addRange(range);
+  document.execCommand('copy');
+  window.getSelection().removeAllRanges();
+}
+    </script>
+
 </body>
 </html>
