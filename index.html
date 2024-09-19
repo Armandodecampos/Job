@@ -5,17 +5,18 @@
     <title>Insert Date</title>
     <style>
     body{
-    background:#b5bcbb;
+    background:transparent;
 	padding:5%;
     }
     .btn{
     background:#fff;
     padding:10px;
-    border:1px solid #777;
+    border:1px solid #353535;
     margin:5px;
     font-size:20px;
     cursor:pointer;
     outline:none;
+	background:#bbb;
     }
     .btn:hover{
     background:#fa0;
@@ -26,30 +27,35 @@
     border:1px solid hsl(0, 0%, 47%);
 	max-width: 100%;
 	min-width: 100%;
+	background:#38634e;
+	color:#eee;
+	font-size:18px;
+	border:10px solid rgb(66, 53, 40);
     }
     .textarea:focus{
     outline:none;
+	border:10px solid rgb(66, 53, 40);
     }
     .textarea:hover{
     outline:none;
     border:1px solid #777;
+	border:10px solid rgb(66, 53, 40);
     }
 	.box1{
-		background:rgb(255, 215, 95);
-		border:1px solid #000;
+		border:3px dotted #000;
 		padding:20px;
 	}
 	.box2{
-		background:rgb(91, 176, 255);
-		border:1px solid #000;
+		border:3px dotted #000;
 		padding:20px;
 	}
     </style>
 </head>
 <body>
+	Quandro de notas:
 <textarea class="textarea"></textarea>
 <br>
-<h3>To copy:</h3>
+<h3>Clica & Copia:</h3>
           <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
           <input id="cb" type="text" hidden>
           <button class="btn" onclick="copy('https://miro.com/app/board/uXjVKiU5g08=/');toque()">Miro</button><br>
@@ -173,6 +179,7 @@
 	<br>
 	<h2><p>Modelo de e-mail resposta para pedido de libera&ccedil;&atilde;o fora do novo padr&atilde;o</p></h2>
 	<h2>Global</h2>
+	<br>
 	Assunto:
 	<div class="box2">
 		<div id="global-assunto">
@@ -180,7 +187,6 @@
 		</div>
 	</div>
 		<button class="btn" onclick="copyElementToClipboard('global-assunto');">Copiar</button>
-	<br /><br />
 		<script>
 	function copyElementToClipboard(element) {
 	  window.getSelection().removeAllRanges();
@@ -191,6 +197,8 @@
 	  window.getSelection().removeAllRanges();
 	}
 		</script>
+		<br>
+		<br>
 		Mensagem:
     <div class="box2">
     <div id="global">
@@ -209,7 +217,6 @@
     </div>
 </div>
     <button class="btn" id="button1" onclick="copyElementToClipboard('global');">Copiar</button>
-<br /><br />
     <script>
 function copyElementToClipboard(element) {
   window.getSelection().removeAllRanges();
@@ -220,13 +227,11 @@ function copyElementToClipboard(element) {
   window.getSelection().removeAllRanges();
 }
     </script>
-	
-	
-	
-	
-	
-	
+	<br>
+	<br>
+	<br>
 	<h2>Bees/Growth</h2>
+	<br>
 	Assunto:
 	<div class="box1">
 		<div id="bees-assunto">
@@ -234,7 +239,6 @@ function copyElementToClipboard(element) {
 		</div>
 	</div>
 		<button class="btn" onclick="copyElementToClipboard('bees-assunto');">Copiar</button>
-	<br /><br />
 		<script>
 	function copyElementToClipboard(element) {
 	  window.getSelection().removeAllRanges();
@@ -245,6 +249,8 @@ function copyElementToClipboard(element) {
 	  window.getSelection().removeAllRanges();
 	}
 		</script>
+		<br>
+		<br>
 		Mensagem:
     <div class="box1">
     <div id="bees">
@@ -262,7 +268,6 @@ function copyElementToClipboard(element) {
     </div>
 </div>
     <button class="btn" id="button1" onclick="copyElementToClipboard('bees');">Copiar</button>
-<br /><br />
     <script>
 function copyElementToClipboard(element) {
   window.getSelection().removeAllRanges();
