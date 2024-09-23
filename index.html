@@ -56,13 +56,17 @@
 		border:3px dotted #000;
 		padding:20px;
 	}
+    .borda{
+	border:3px solid black;padding:50px;border-radius:10px;
+    }
     </style>
 </head>
 <body>
 	Quandro de notas:
 <textarea class="textarea"></textarea>
 <br>
-<h3>Clica & Copia:</h3>
+<div class"borda">
+<h3>Copia & Cola:</h3>
           <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
           <input id="cb" type="text" hidden>
           <button class="btn" onclick="copy('https://miro.com/app/board/uXjVKiU5g08=/');toque()">Miro</button><br>
@@ -181,9 +185,11 @@
         // Insert the date string into the div
         dateDiv4.innerText = dateString4;
     </script>
+	</div>
 	<br>
 	<br>
 	<br>
+	<div class="borda">
 	<h2><p>Modelo de e-mail resposta para pedido de libera&ccedil;&atilde;o fora do novo padr&atilde;o</p></h2>
 	<h2 style="background:#33b2ff;padding:20px;border:1px solid black">Global</h2>
 	<br>
@@ -288,6 +294,6 @@ function copyElementToClipboard(element) {
   window.getSelection().removeAllRanges();
 }
     </script>
-
+</div>
 </body>
 </html>
