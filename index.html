@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferramentas</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/4709/4709000.png">
+    <link rel="icon" type="image/x-icon" href="https://archive.org/download/FingerSnapLogo_201602/FingerSnapLogo.jpg">
     <style>
     body{
     background:transparent;
@@ -55,6 +55,9 @@
 	border:10px solid rgb(66, 53, 40);
 	box-shadow: 0px 8px 8px black;
     }
+    .textarea::placeholder{
+        color:#aaa;
+    }
 	.box1{
 		border:3px dotted #fa0;
 		padding:20px;
@@ -66,19 +69,19 @@
 		border-radius:10px;
 	}
     .borda{
-	border:10px solid rgb(66, 53, 40);padding:50px;border-radius:10px;box-shadow: 0px 8px 8px black;
+	border:10px solid rgb(66, 53, 40);padding:50px;box-shadow: 0px 8px 8px black;
     }
     </style>
 </head>
 <body>
-	Quandro de notas:
-<textarea class="textarea"></textarea>
+<textarea class="textarea" placeholder='Anote algo temporário aqui'></textarea>
 <br><br><br><br>
-<div class="borda">
-<h3>Copia & Cola:</h3>
+<div class="borda" style="background:#ddd">
+<p>Atalhos:</p>
           <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
           <input id="cb" type="text" hidden>
           <button class="btn" onclick="copy('https://miro.com/app/board/uXjVKiU5g08=/');toque()">Miro</button><br>
+          <p>Relatório de acessos:</p>
           <input id="cb" type="text" hidden>
           <script>
         function copy(txt) {
