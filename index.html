@@ -24,6 +24,9 @@
     cursor:pointer;
     outline:none;
 	background:#bbb;
+	box-shadow: 0px 3px 5px black;
+	font-weight:bold;
+	border-radius:10px;
     }
     .btn:hover{
     background:#fa0;
@@ -34,37 +37,43 @@
     border:1px solid hsl(0, 0%, 47%);
 	max-width: 100%;
 	min-width: 100%;
+	min-height: 50px;
 	background:#38634e;
 	color:#eee;
 	font-size:18px;
 	border:10px solid rgb(66, 53, 40);
+	box-shadow: 0px 8px 8px black;
     }
     .textarea:focus{
     outline:none;
 	border:10px solid rgb(66, 53, 40);
+	box-shadow: 0px 8px 8px black;
     }
     .textarea:hover{
     outline:none;
     border:1px solid #777;
 	border:10px solid rgb(66, 53, 40);
+	box-shadow: 0px 8px 8px black;
     }
 	.box1{
-		border:3px dotted #000;
+		border:2px dotted #000;
 		padding:20px;
+		border-radius:10px;
 	}
 	.box2{
-		border:3px dotted #000;
+		border:2px dotted #000;
 		padding:20px;
+		border-radius:10px;
 	}
     .borda{
-	border:3px solid black;padding:50px;border-radius:10px;
+	border:3px solid black;padding:50px;border-radius:10px;box-shadow: 0px 8px 8px black;
     }
     </style>
 </head>
 <body>
 	Quandro de notas:
 <textarea class="textarea"></textarea>
-<br>
+<br><br><br><br>
 <div class="borda">
 <h3>Copia & Cola:</h3>
           <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
@@ -190,8 +199,10 @@
 	<br>
 	<br>
 	<div class="borda">
+	    <hr><hr><hr>
 	<h2><p>Modelo de e-mail resposta para pedido de libera&ccedil;&atilde;o fora do novo padr&atilde;o</p></h2>
-	<h2 style="background:#33b2ff;padding:20px;border:1px solid black">Global</h2>
+	<hr><hr><hr>
+	<h2 style="background:#33b2ff;padding:20px;border:1px solid black;box-shadow: 0px 8px 8px black;">Global</h2>
 	<br>
 	Assunto:
 	<div class="box2">
@@ -246,7 +257,7 @@ function copyElementToClipboard(element) {
 	<br>
 	<br>
 	<br>
-	<h2 style="background:#ffc433;padding:20px;border:1px solid black">Bees/Growth</h2>
+	<h2 style="background:#fa0;padding:20px;border:1px solid black;box-shadow: 0px 8px 8px black;">Bees/Growth</h2>
 	<br>
 	Assunto:
 	<div class="box1">
