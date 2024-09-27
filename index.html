@@ -50,6 +50,22 @@
 	border:10px solid rgb(66, 53, 40);
 	box-shadow: 0px 8px 8px black;
     }
+    .liberacao{
+    width:100%;
+    border:1px solid hsl(0, 0%, 47%);
+	max-width: 100%;
+	min-width: 100%;
+	min-height: 100px;
+	background:#38634e;
+	color:#eee;
+	font-size:18px;
+	border:10px solid rgb(66, 53, 40);
+	box-shadow: 0px 8px 8px black;
+	padding:10px;
+    }
+    .liberacao:focus{
+    outline:none;
+    }
     .textarea:hover{
     outline:none;
     border:1px solid #777;
@@ -82,6 +98,8 @@
     <br>
     <br>
 <textarea class="textarea" placeholder='Anote algo temporário aqui'></textarea>
+<br><br><br><br>
+<input id="liberacao" class="liberacao">
 <br><br><br><br>
 <div class="borda" style="background:#ddd">
 <p>Atalhos:</p>
@@ -221,16 +239,6 @@
 		</div>
 	</div>
 		<button class="btn" onclick="copyElementToClipboard('global-assunto');">Copiar</button>
-		<script>
-	function copyElementToClipboard(element) {
-	  window.getSelection().removeAllRanges();
-	  let range = document.createRange();
-	  range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
-	  window.getSelection().addRange(range);
-	  document.execCommand('copy');
-	  window.getSelection().removeAllRanges();
-	}
-		</script>
 		<br>
 		<br>
 		Mensagem:
@@ -254,16 +262,6 @@
     </div>
 </div>
     <button class="btn" id="button1" onclick="copyElementToClipboard('global');">Copiar</button>
-    <script>
-function copyElementToClipboard(element) {
-  window.getSelection().removeAllRanges();
-  let range = document.createRange();
-  range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
-  window.getSelection().addRange(range);
-  document.execCommand('copy');
-  window.getSelection().removeAllRanges();
-}
-    </script>
 	<br>
 	<br>
 	<br>
@@ -279,16 +277,6 @@ function copyElementToClipboard(element) {
 		</div>
 	</div>
 		<button class="btn" onclick="copyElementToClipboard('bees-assunto');">Copiar</button>
-		<script>
-	function copyElementToClipboard(element) {
-	  window.getSelection().removeAllRanges();
-	  let range = document.createRange();
-	  range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
-	  window.getSelection().addRange(range);
-	  document.execCommand('copy');
-	  window.getSelection().removeAllRanges();
-	}
-		</script>
 		<br>
 		<br>
 		Mensagem:
@@ -308,6 +296,12 @@ function copyElementToClipboard(element) {
     </div>
 </div>
     <button class="btn" id="button1" onclick="copyElementToClipboard('bees');">Copiar</button>
+</div>
+<script>
+    window.onbeforeunload = function(){
+    return "Tem certeza que deseja fechar esta p&#225;gina? Suas notas ser&atilde;o perdidas!";
+}
+</script>
     <script>
 function copyElementToClipboard(element) {
   window.getSelection().removeAllRanges();
@@ -318,11 +312,5 @@ function copyElementToClipboard(element) {
   window.getSelection().removeAllRanges();
 }
     </script>
-</div>
-<script>
-    window.onbeforeunload = function(){
-    return "Tem certeza que deseja fechar esta p&#225;gina? Suas notas ser&atilde;o perdidas!";
-}
-</script>
 </body>
 </html>
