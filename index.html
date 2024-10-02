@@ -104,22 +104,48 @@
     <h2 style="margin-top:0px;color:#444;font-style: italic;">Ferramentas</h2>
     <span id="datetime"></span>
 
+    
+    
+    
+    <div id="real-time-clock"></div>
     <script>
-      // create a function to update the date and time
-      function updateDateTime() {
-        // create a new `Date` object
-        const now = new Date();
+function updateDateTime() {
+    const clockElement = document.getElementById('real-time-clock');
+    const currentTime = new Date();
 
-        // get the current date and time as a string
-        const currentDateTime = now.toLocaleString();
+    // Define arrays for days of the week and months to format the day and month names.
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[currentTime.getDay()];
 
-        // update the `textContent` property of the `span` element with the `id` of `datetime`
-        document.querySelector('#datetime').textContent = currentDateTime;
-      }
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const month = months[currentTime.getMonth()];
 
-      // call the `updateDateTime` function every second
-      setInterval(updateDateTime, 1000);
-    </script>
+    const day = currentTime.getDate();
+    const year = currentTime.getFullYear();
+
+    // Calculate and format hours (in 12-hour format), minutes, seconds, and AM/PM.
+    let hours = currentTime.getHours();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+    const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+
+    // Construct the date and time string in the desired format.
+    const dateTimeString = `${dayOfWeek}, ${month} ${day}, ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
+    clockElement.textContent = dateTimeString;
+}
+
+// Update the date and time every second (1000 milliseconds).
+setInterval(updateDateTime, 1000);
+
+// Initial update.
+updateDateTime();
+</script>
+    
+    
+    
+    
+
     </center>
     <br>
     <br>
