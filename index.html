@@ -382,7 +382,7 @@ function checkDate() {
     console.log(date.getDay());
     console.log(date.getHours());
     if(date.getHours() === 9 && date.getMinutes() === 30 && date.getSeconds() === 1) {
-        alert("Enviar relat&oacute;rios!");
+        alert("Enviar relatórios!");
     }
 }
 var dateLoop = setInterval(function() {
@@ -390,17 +390,24 @@ var dateLoop = setInterval(function() {
 },5000);
 </script>
 <script type="text/javascript">
-function checkDate() {
+function checkDate2() {
     var date = new Date();
     console.log(date.getDay());
     console.log(date.getHours());
-    if(date.getHours() === 11 && date.getMinutes() === 0 && date.getSeconds() === 0) {
-        alert("Enviar relat&oacute;rio!");
+    if(date.getHours() === 11 && date.getMinutes() === 0 && date.getSeconds() === 1) {
+        alert("Enviar relatório!");
     }
 }
 var dateLoop = setInterval(function() {
     checkDate();
 },5000);
+</script>
+<script type="text/javascript">
+function myFunction () {
+    checkDate();
+    checkDate2();
+}
+var interval = setInterval(function () { myFunction(); }, 1);
 </script>
     
 </body>
