@@ -22,9 +22,7 @@
     margin:5px;
     font-size:20px;
     cursor:pointer;
-    outline:none;
-	background:#ddd;
-	box-shadow: 0px 3px 5px black;
+	box-shadow: 0px 0px 3px 1px black;
 	font-weight:bold;
 	border-radius:10px;
     }
@@ -34,44 +32,34 @@
     .textarea{
     width:100%;
     height:400px;
-    border:1px solid hsl(0, 0%, 47%);
+    border:2px solid #111;
+    border-radius:10px;
 	max-width: 100%;
 	min-width: 100%;
 	min-height: 100px;
-	background:#38634e;
-	color:#eee;
+	color:#000;
 	font-size:18px;
-	border:10px solid rgb(66, 53, 40);
-	box-shadow: 0px 8px 8px black;
 	padding:10px;
+	box-shadow: 0px 0px 3px 1px black;
     }
-    .textarea:focus{
-    outline:none;
-	border:10px solid rgb(66, 53, 40);
-	box-shadow: 0px 8px 8px black;
-    }
+
     .liberacao{
     width:100%;
-    border:1px solid hsl(0, 0%, 47%);
+    border:2px solid #111;
+    border-radius:10px;
 	max-width: 100%;
 	min-width: 100%;
 	min-height: 100px;
-	background:#38634e;
-	color:#eee;
+	color:#000;
 	font-size:18px;
-	border:10px solid rgb(66, 53, 40);
-	box-shadow: 0px 8px 8px black;
 	padding:10px;
+	box-shadow: 0px 0px 3px 1px black;
+
     }
     .liberacao:focus{
     outline:none;
     }
-    .textarea:hover{
-    outline:none;
-    border:1px solid #777;
-	border:10px solid rgb(66, 53, 40);
-	box-shadow: 0px 8px 8px black;
-    }
+
     .textarea::placeholder{
         color:#aaa;
     }
@@ -86,7 +74,7 @@
 		border-radius:10px;
 	}
     .borda{
-	border:10px solid rgb(66, 53, 40);padding:50px;box-shadow: 0px 8px 8px black;
+	border:2px solid #111;padding:50px;box-shadow: 0px 0px 3px 1px black;
     }
     [type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -146,7 +134,15 @@ updateDateTime();
 <br>
 <br>
 <br>
-<input onchange="UpdateQRCode(this.value)" value="Insira o link aqui..." style="border:2px solid #111;border-radius:50px;padding:10px"/><br><br><br><br><br>
+<input onchange="UpdateQRCode(this.value)" placeholder="Insira o link aqui..." style="border:2px solid #111;border-radius:50px;padding:10px;"/><br><br>
+<button class="btn" onclick="clickHandler()">Create</button>
+<script>
+function clickHandler() {
+    var simulatedEvent = new KeyboardEvent("keypress", {keyCode: 13, which: 13});
+    document.getElementById("yourSearchInput").dispatchEvent(simulatedEvent);
+}
+</script>
+<br><br><br>
 <br>
 <iframe id="qrcode" src="" width="250" height="250" style="border:0px solid #111;"></iframe>
 <script>
@@ -190,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function(){
 <br><br><br><br>
 <input type="search" id="liberacao" class="liberacao">
 <br><br><br><br>
-<div class="borda" style="background:#ddd">
+<div class="borda">
 <p>Atalhos:</p>
           <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
 	  <button class="btn" onclick="copy('https://armandodecampos.github.io/Job/');toque()">Ferramentas</button><br>
