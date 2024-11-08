@@ -112,13 +112,19 @@ box-shadow: 0px 0px 3px 0px black;outline:none;
 .geradorqrcode:hover{
 cursor:pointer;
 }
-
+.qrcode{
+animation: fadeIn 5s forwards;
+}
+@keyframes fadeIn {
+    from { transform:rotate(0deg); }
+      to { transform:rotate(90deg); }
+} 
     </style>
 </head>
 <body>
     <center>
     <span id="datetime"></span>
-    <div id="real-time-clock" style="position:fixed;margin:auto;top:0;left:0;padding:5px;padding-left:10px;padding-right:15px;background:#eee;border-radius:0px 0px 15px 0px;box-shadow: 1px 1px 4px 1px black;"></div>
+    <div id="real-time-clock" style="position:fixed;margin:auto;top:0;left:0;padding:5px;padding-left:10px;padding-right:15px;background:#eee;border-radius:0px 0px 15px 0px;box-shadow: 1px 1px 4px 1px black;z-index:100"></div>
     <script>
 function updateDateTime() {
     const clockElement = document.getElementById('real-time-clock');
@@ -169,6 +175,7 @@ function clickHandler() {
     var simulatedEvent = new KeyboardEvent("keypress", {keyCode: 13, which: 13});
     document.getElementById("yourSearchInput").dispatchEvent(simulatedEvent);
 }
+document.getElementsByClassName('qrcode')[0].style.display = 'none';
 </script>
 <br><br><br>
 <br>
@@ -176,7 +183,7 @@ function clickHandler() {
 <br>
 <br>
 <br>
-<iframe id="qrcode" src="" width="250" height="250" style="border:0px solid #111;"></iframe>
+<iframe class="qrcode" id="qrcode" src="" width="250" height="250" style="border:0px solid #111;"></iframe>
 <script>
     function UpdateQRCode(val){
     document.getElementById("qrcode").setAttribute("src","https://api.mimfa.net/qrcode?value="+encodeURIComponent(val)+"&as=value");
