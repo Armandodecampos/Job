@@ -17,17 +17,13 @@
 	     }
     }
     .btn{
-    background:#fff;
-    padding:10px;
-    border:1px solid #353535;
-    margin:5px;
-    font-size:20px;
-    cursor:pointer;
-	box-shadow: 0px 0px 3px 1px black;
-	font-weight:bold;
+margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:#ddd;font-weight:bold;color:#000;box-shadow: 1px 1px 4px 1px black;
     }
     .btn:hover{
-    background:#fa0;
+    cursor:pointer;
+    }
+    .btn:focus{
+    box-shadow: 0px 1px 4px 0px black;
     }
     .textarea{
     width:100%;
@@ -36,10 +32,11 @@
 	max-width: 100%;
 	min-width: 100%;
 	min-height: 100px;
+    background:#eee;
 	color:#000;
 	font-size:18px;
 	padding:10px;
-	box-shadow: 0px 0px 3px 1px black;
+	box-shadow: 1px 1px 4px 1px black;
     }
 
     .liberacao{
@@ -48,10 +45,11 @@
 	max-width: 100%;
 	min-width: 100%;
 	min-height: 100px;
+    background:#eee;
 	color:#000;
 	font-size:18px;
 	padding:10px;
-	box-shadow: 0px 0px 3px 1px black;
+	box-shadow: 1px 1px 4px 1px black;
 
     }
     .liberacao:focus{
@@ -76,7 +74,7 @@
 		border-radius:10px;
 	}
     .borda{
-	border:2px solid #111;padding:50px;box-shadow: 0px 0px 3px 1px black;
+	border:2px solid #111;padding:50px;box-shadow: 1px 1px 4px 1px black;background:#eee;
     }
     [type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
@@ -97,29 +95,29 @@ input:focus{
     outline:none;
 }
 .btn2 {
-margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:green;fontweight:bold;color:white
+margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:#070;font-weight:bold;color:white;box-shadow: 1px 1px 4px 1px black;
 }
 .btn2:hover{
-box-shadow: 0px 0px 3px 1px black;
+cursor:pointer;
 }
 .btn2:focus{
 box-shadow: 0px 0px 3px 0px black;
 }
 .geradorqrcode{
-margin:auto;border-radius:5px;padding:10px;
+margin:auto;border-radius:5px;padding:10px;box-shadow: 1px 1px 4px 1px black;
 }
 .geradorqrcode:focus{
-box-shadow: 0px 0px 3px 1px black;
+box-shadow: 0px 0px 3px 0px black;outline:none;
 }
 .geradorqrcode:hover{
-box-shadow: 0px 0px 3px 1px black;
+cursor:pointer;
 }
     </style>
 </head>
 <body>
     <center>
     <span id="datetime"></span>
-    <div id="real-time-clock" style=""></div>
+    <div id="real-time-clock" style="position:fixed;margin:auto;top:0;left:0;padding:5px;padding-left:10px;padding-right:15px;background:#eee;border-radius:0px 0px 15px 0px;box-shadow: 1px 1px 4px 1px black;"></div>
     <script>
 function updateDateTime() {
     const clockElement = document.getElementById('real-time-clock');
@@ -163,7 +161,7 @@ updateDateTime();
 <br>
 <div class="boxcriarqrcode">
 <input type="search" class="geradorqrcode" onchange="UpdateQRCode(this.value)" placeholder="Insira o link aqui..."/><br><br>
-<button class="btn2" onclick="clickHandler()">Generate</button>
+<button class="btn2" onclick="clickHandler()">Gerar</button>
 </div>
 <script>
 function clickHandler() {
@@ -224,7 +222,6 @@ document.addEventListener("DOMContentLoaded", function(){
           <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
 	  <button class="btn" onclick="copy('https://armandodecampos.github.io/Job/');toque()">Tools</button><br>
           <input id="cb" type="text" hidden>
-          <button class="btn" onclick="copy('https://miro.com/app/board/uXjVKiU5g08=/');toque()">Miro</button><br>
           <p>Relatório de acessos:</p>
           <input id="cb" type="text" hidden>
           <script>
