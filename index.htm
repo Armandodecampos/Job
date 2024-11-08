@@ -13,6 +13,7 @@
     	body {
     		padding-right:5%;
 		padding-left:5%;
+        background:#eee;
 	     }
     }
     .btn{
@@ -24,7 +25,6 @@
     cursor:pointer;
 	box-shadow: 0px 0px 3px 1px black;
 	font-weight:bold;
-	border-radius:10px;
     }
     .btn:hover{
     background:#fa0;
@@ -33,7 +33,6 @@
     width:100%;
     height:400px;
     border:2px solid #111;
-    border-radius:10px;
 	max-width: 100%;
 	min-width: 100%;
 	min-height: 100px;
@@ -46,7 +45,6 @@
     .liberacao{
     width:100%;
     border:2px solid #111;
-    border-radius:10px;
 	max-width: 100%;
 	min-width: 100%;
 	min-height: 100px;
@@ -98,14 +96,30 @@ input:focus{
     box-shadow: 0px 0px 3px 1px black;
     outline:none;
 }
+.btn2 {
+margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:green;fontweight:bold;color:white
+}
+.btn2:hover{
+box-shadow: 0px 0px 3px 1px black;
+}
+.btn2:focus{
+box-shadow: 0px 0px 3px 0px black;
+}
+.geradorqrcode{
+margin:auto;border-radius:5px;padding:10px;
+}
+.geradorqrcode:focus{
+box-shadow: 0px 0px 3px 1px black;
+}
+.geradorqrcode:hover{
+box-shadow: 0px 0px 3px 1px black;
+}
     </style>
 </head>
 <body>
     <center>
-    <img style="width:70px" src="https://archive.org/download/FingerSnapLogo_201602/FingerSnapLogo.jpg">
-    <h2 style="margin-top:0px;color:#444;font-style: italic;">Tools</h2>
     <span id="datetime"></span>
-    <div id="real-time-clock" style="background:#333;color:#fff;width:fit-content;padding:5px;border:2px solid #000;border-radius:5px"></div>
+    <div id="real-time-clock" style=""></div>
     <script>
 function updateDateTime() {
     const clockElement = document.getElementById('real-time-clock');
@@ -148,8 +162,8 @@ updateDateTime();
 <br>
 <br>
 <div class="boxcriarqrcode">
-<input onchange="UpdateQRCode(this.value)" placeholder="Insira o link aqui..." style="margin:auto;border-radius:50px;padding:10px;box-shadow: 0px 0px 3px 1px black;"/><br><br>
-<button class="btn" style="margin:auto;border-radius:5px;border: 2px outset #222" onclick="clickHandler()">&#8594;</button>
+<input class="geradorqrcode" onchange="UpdateQRCode(this.value)" placeholder="Insira o link aqui..."/><br><br>
+<button class="btn2" onclick="clickHandler()">Generate</button>
 </div>
 <script>
 function clickHandler() {
@@ -208,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function(){
 <div class="borda">
 <p>Atalhos:</p>
           <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
-	  <button class="btn" onclick="copy('https://armandodecampos.github.io/Job/');toque()">Ferramentas</button><br>
+	  <button class="btn" onclick="copy('https://armandodecampos.github.io/Job/');toque()">Tools</button><br>
           <input id="cb" type="text" hidden>
           <button class="btn" onclick="copy('https://miro.com/app/board/uXjVKiU5g08=/');toque()">Miro</button><br>
           <p>Relatório de acessos:</p>
