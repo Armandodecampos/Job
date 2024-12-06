@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tools</title>
     <link rel="icon" href="https://archive.org/download/FingerSnapLogo_201602/FingerSnapLogo.jpg">
+    <link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
     <style>
     body{
     background:transparent;
@@ -95,7 +96,7 @@ input:focus{
     outline:none;
 }
 .btn2 {
-margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:#070;font-weight:bold;color:white;box-shadow: 1px 1px 4px 1px #555;
+margin:auto;border-radius:50px;border: 2px outset #222;padding:10px;background:#070;font-weight:bold;color:white;box-shadow: 1px 1px 4px 1px #555;
 }
 .btn2:hover{
 cursor:pointer;
@@ -104,7 +105,7 @@ cursor:pointer;
 box-shadow: 0px 0px 3px 0px #555;
 }
 .geradorqrcode{
-margin:auto;border-radius:5px;padding:10px;box-shadow: 1px 1px 4px 1px #555;
+margin:auto;border-radius:50px;padding:10px;box-shadow: 1px 1px 4px 1px #555;
 }
 .geradorqrcode:focus{
 box-shadow: 0px 0px 3px 0px #555;outline:none;
@@ -125,6 +126,9 @@ animation: fadeIn 5s forwards;display:none;
 .show:hover{
     Font-size:40px;padding:10px;padding-right:30px;padding-left:30px;transition: 1s;box-shadow: 1px 1px 0px 10000px #555;
 }
+.boxsetaparabaixo {
+  filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+}
 .setaparabaixo{
     margin:auto;
     left:0;
@@ -132,7 +136,7 @@ animation: fadeIn 5s forwards;display:none;
     width:100px;
     height:0px;
     opacity:0;
-    background:#fa0;
+    background:#070;
     clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
     transform:rotate(90deg);
     animation-name: example;
@@ -152,7 +156,7 @@ display:none;
 <body>
     <center>
     <span id="datetime"></span>
-    <div id="real-time-clock" style="position:fixed;margin:auto;top:0;left:0;right:0;padding:5px;padding-left:10px;padding-right:15px;background:#eee;border-radius:0px 0px 0px 0px;box-shadow: 0px 0px 5px 1px #555;z-index:100"></div>
+    <div id="real-time-clock" style="position:fixed;margin:auto;bottom:0;left:0;right:0;padding:5px;padding-left:10px;padding-right:15px;background:#eee;border-radius:0px 0px 0px 0px;box-shadow: 0px 0px 5px 1px #555;z-index:100"></div>
     <script>
 function updateDateTime() {
     const clockElement = document.getElementById('real-time-clock');
@@ -190,7 +194,7 @@ updateDateTime();
 <br>
 <br>
 <br>
-<h3>Gerador de QR Code</h3>
+<h3 style="color:#555;font-family: 'Schoolbell', arial, serif; ">Gerador de QR Code</h3>
 <div class="boxcriarqrcode">
 <input type="search" class="geradorqrcode" onchange="UpdateQRCode(this.value)" placeholder="Insira o link aqui..."/><br><br>
 <button class="btn2" onclick="clickHandler()">Gerar</button>
@@ -210,9 +214,10 @@ element.classList.add('setaparabaixo'); // start animation
 }
 document.getElementsByClassName('qrcode')[0].style.display = 'none';
 </script>
-<br><br><br>
 <br>
+<div class="boxsetaparabaixo" style="margin-top:10px">
 <div class="setaparabaixo" id="setaparabaixo"></div>
+</div>
 <br>
 <br>
 <br>
