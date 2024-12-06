@@ -1,0 +1,523 @@
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools</title>
+    <link rel="icon" href="https://archive.org/download/FingerSnapLogo_201602/FingerSnapLogo.jpg">
+    <style>
+    body{
+    background:transparent;
+	padding:1%;
+    }
+    @media (orientation: landscape) {
+    	body {
+    		padding-right:5%;
+		padding-left:5%;
+        background:#eee;
+	     }
+    }
+    .btn{
+margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:#ddd;font-weight:bold;color:#000;box-shadow: 1px 1px 4px 1px black;
+    }
+    .btn:hover{
+    cursor:pointer;
+    }
+    .btn:focus{
+    box-shadow: 0px 1px 4px 0px black;
+    }
+    .textarea{
+    width:100%;
+    height:400px;
+    border:2px solid #111;
+	max-width: 100%;
+	min-width: 100%;
+	min-height: 100px;
+    background:#eee;
+	color:#000;
+	font-size:18px;
+	padding:10px;
+	box-shadow: 1px 1px 4px 1px black;
+    }
+
+    .liberacao{
+    width:100%;
+    border:2px solid #111;
+	max-width: 100%;
+	min-width: 100%;
+	min-height: 100px;
+    background:#eee;
+	color:#000;
+	font-size:18px;
+	padding:10px;
+	box-shadow: 1px 1px 4px 1px black;
+
+    }
+    .liberacao:focus{
+    outline:none;
+    }
+
+    .textarea::placeholder{
+        color:#aaa;
+    }
+        .textarea:focus{
+    border:2px solid #111;
+    outline:none;
+    }
+	.box1{
+		border:3px dotted #fa0;
+		padding:20px;
+		border-radius:10px;
+	}
+	.box2{
+		border:3px dotted #fa0;
+		padding:20px;
+		border-radius:10px;
+	}
+    .borda{
+	border:2px solid #111;padding:50px;box-shadow: 1px 1px 4px 1px black;background:#eee;
+    }
+    [type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 30px;
+  width: 30px;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjEyMy4wNXB4IiBoZWlnaHQ9IjEyMy4wNXB4IiB2aWV3Qm94PSIwIDAgMTIzLjA1IDEyMy4wNSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTIzLjA1IDEyMy4wNTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTEyMS4zMjUsMTAuOTI1bC04LjUtOC4zOTljLTIuMy0yLjMtNi4xLTIuMy04LjUsMGwtNDIuNCw0Mi4zOTlMMTguNzI2LDEuNzI2Yy0yLjMwMS0yLjMwMS02LjEwMS0yLjMwMS04LjUsMGwtOC41LDguNQ0KCQljLTIuMzAxLDIuMy0yLjMwMSw2LjEsMCw4LjVsNDMuMSw0My4xbC00Mi4zLDQyLjVjLTIuMywyLjMtMi4zLDYuMSwwLDguNWw4LjUsOC41YzIuMywyLjMsNi4xLDIuMyw4LjUsMGw0Mi4zOTktNDIuNGw0Mi40LDQyLjQNCgkJYzIuMywyLjMsNi4xLDIuMyw4LjUsMGw4LjUtOC41YzIuMy0yLjMsMi4zLTYuMSwwLTguNWwtNDIuNS00Mi40bDQyLjQtNDIuMzk5QzEyMy42MjUsMTcuMTI1LDEyMy42MjUsMTMuMzI1LDEyMS4zMjUsMTAuOTI1eiIvPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=);
+  background-size: 30px 30px;
+}
+.boxcriarqrcode{
+    display:flex;
+    margin:auto;
+    width:300px;
+    
+}
+input:focus{
+    box-shadow: 0px 0px 3px 1px #555;
+    outline:none;
+}
+.btn2 {
+margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:#070;font-weight:bold;color:white;box-shadow: 1px 1px 4px 1px #555;
+}
+.btn2:hover{
+cursor:pointer;
+}
+.btn2:focus{
+box-shadow: 0px 0px 3px 0px #555;
+}
+.geradorqrcode{
+margin:auto;border-radius:5px;padding:10px;box-shadow: 1px 1px 4px 1px #555;
+}
+.geradorqrcode:focus{
+box-shadow: 0px 0px 3px 0px #555;outline:none;
+}
+.geradorqrcode:hover{
+cursor:pointer;
+}
+.qrcode{
+animation: fadeIn 5s forwards;display:none;
+}
+@keyframes fadeIn {
+    from { opacity:0; }
+      to { opacity:1; }
+}
+.show{
+    padding:10px;padding-right:30px;padding-left:30px;border:1px solid black;box-shadow: 1px 1px 4px 1px #555;margin:0 auto;left:0;right:0;word-break: break-all;
+}
+.show:hover{
+    Font-size:40px;padding:10px;padding-right:30px;padding-left:30px;transition: 1s;box-shadow: 1px 1px 0px 10000px #555;
+}
+.setaparabaixo{
+    margin:auto;
+    left:0;
+    right:0;
+    width:100px;
+    height:0px;
+    opacity:0;
+    background:#fa0;
+    clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+    transform:rotate(90deg);
+    animation-name: example;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-fill-mode: backwards;
+display:none;
+}
+@keyframes example {
+  0% {height:0px;width:0px;opacity:0}
+  3% {height:50px;width:50px;opacity:1}
+  97% {height:50px;width:50px;opacity:1}
+  100% {height:0px;width:0px;opacity:0}
+}
+    </style>
+</head>
+<body>
+    <center>
+    <span id="datetime"></span>
+    <div id="real-time-clock" style="position:fixed;margin:auto;top:0;left:0;right:0;padding:5px;padding-left:10px;padding-right:15px;background:#eee;border-radius:0px 0px 0px 0px;box-shadow: 0px 0px 5px 1px #555;z-index:100"></div>
+    <script>
+function updateDateTime() {
+    const clockElement = document.getElementById('real-time-clock');
+    const currentTime = new Date();
+
+    // Define arrays for days of the week and months to format the day and month names.
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[currentTime.getDay()];
+
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const month = months[currentTime.getMonth()];
+
+    const day = currentTime.getDate();
+    const year = currentTime.getFullYear();
+
+    // Calculate and format hours (in 12-hour format), minutes, seconds, and AM/PM.
+    let hours = currentTime.getHours();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+    const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+
+    // Construct the date and time string in the desired format.
+    const dateTimeString = `${dayOfWeek}, ${month} ${day}, ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
+    clockElement.textContent = dateTimeString;
+}
+
+// Update the date and time every second (1000 milliseconds).
+setInterval(updateDateTime, 1000);
+
+// Initial update.
+updateDateTime();
+</script>
+<br>
+<br>
+<br>
+<br>
+<h3>Gerador de QR Code</h3>
+<div class="boxcriarqrcode">
+<input type="search" class="geradorqrcode" onchange="UpdateQRCode(this.value)" placeholder="Insira o link aqui..."/><br><br>
+<button class="btn2" onclick="clickHandler()">Gerar</button>
+</div>
+<script>
+function clickHandler() {
+    document.getElementById("qrcode").style.display = 'block';
+    document.getElementById("qrcode").style.display = 'block';
+    const element = document.getElementById('setaparabaixo')
+
+element.classList.remove('setaparabaixo'); // reset animation
+void element.offsetWidth; // trigger reflow
+element.classList.add('setaparabaixo'); // start animation
+    document.getElementById("setaparabaixo").style.display = "block";
+    var simulatedEvent = new KeyboardEvent("keypress", {keyCode: 13, which: 13});
+    document.getElementById("yourSearchInput").dispatchEvent(simulatedEvent);
+}
+document.getElementsByClassName('qrcode')[0].style.display = 'none';
+</script>
+<br><br><br>
+<br>
+<div class="setaparabaixo" id="setaparabaixo"></div>
+<br>
+<br>
+<br>
+<iframe class="qrcode" id="qrcode" src="" width="250" height="250" style="border:0px solid #111;"></iframe>
+<script>
+    function UpdateQRCode(val){
+        
+    document.getElementById("qrcode").setAttribute("src","https://api.mimfa.net/qrcode?value="+encodeURIComponent(val)+"&as=value");
+}
+document.addEventListener("DOMContentLoaded", function(){
+    UpdateQRCode(document.getElementById("qrcode").value);
+    
+});
+</script>  
+    <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="show">Portaria virtual: <h2>https://portaria-global.governarti.com.br/</h2></div>
+<br>
+<div class="show">Email facilities (Global): <h2>facilities@ab-inbev.com</h2></div>
+<br>
+<div class="show">Email facilities (BEES): <h2>facilities.bees@ab-inbev.com</h2></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    
+
+    </center>
+    <br>
+    <br>
+<textarea class="textarea" placeholder='Anote algo temporário aqui'></textarea>
+<br><br><br><br>
+<input type="search" id="liberacao" class="liberacao">
+<br><br><br><br>
+<div class="borda">
+<p>Atalhos:</p>
+          <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
+	  <button class="btn" onclick="copy('https://armandodecampos.github.io/Job/');toque()">Tools</button><br>
+          <input id="cb" type="text" hidden>
+          <p>Relatório de acessos:</p>
+          <input id="cb" type="text" hidden>
+          <script>
+        function copy(txt) {
+          var cb = document.getElementById("cb");
+          cb.value = txt;
+          cb.style.display = 'block';
+          cb.select();
+          document.execCommand('copy');
+          cb.style.display = 'none';
+        }
+      </script>
+<div class="btn" id="a" onclick="copyDivToClipboard()">
+    <span id="dateDiv"></span>
+    </div>
+    <script>
+    function copyDivToClipboard() {
+    var range = document.createRange();
+    range.selectNode(document.getElementById("a"));
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();// to deselect
+    }
+    </script>
+        <script>
+        // Get the current date
+        const currentDate = new Date();
+		const day = currentDate.getDate();
+		const month = currentDate.getMonth() + 1; // Os meses são indexados a partir de 0
+		const year = currentDate.getFullYear();
+		const dateString = "Pessoa_" + `${day}-${month}-${year}`;
+		console.log(dateString); // Exemplo de saída: 3-9-2024
+        // Get the div element by its ID
+        const dateDiv = document.getElementById('dateDiv');
+        // Insert the date string into the div
+        dateDiv.innerText = dateString;
+    </script>
+    <div class="btn" id="b" onclick="copyDivToClipboard2()">
+    <span id="dateDiv2"></span>
+    </div>
+    <script>
+    function copyDivToClipboard2() {
+    var range = document.createRange();
+    range.selectNode(document.getElementById("b"));
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();// to deselect
+    }
+    </script>
+        <script>
+        // Get the current date
+        const currentDate2 = new Date();
+		const day2 = currentDate.getDate();
+		const month2 = currentDate.getMonth() + 1; // Os meses são indexados a partir de 0
+		const year2 = currentDate.getFullYear();
+		const dateString2 = "Todos os registros_" + `${day2}-${month2}-${year2}`;
+		console.log(dateString2); // Exemplo de saída: 3-9-2024
+        // Get the div element by its ID
+        const dateDiv2 = document.getElementById('dateDiv2');
+        // Insert the date string into the div
+        dateDiv2.innerText = dateString2;
+    </script>
+    <div class="btn" id="c" onclick="copyDivToClipboard3()">
+    <span id="dateDiv3"></span>
+    </div>
+    <script>
+    function copyDivToClipboard3() {
+    var range = document.createRange();
+    range.selectNode(document.getElementById("c"));
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();// to deselect
+    }
+    </script>
+        <script>
+        // Get the current date
+        const currentDate3 = new Date();
+		const day3 = currentDate.getDate() - 1;
+		const month3 = currentDate.getMonth() + 1; // Os meses são indexados a partir de 0
+		const year3 = currentDate.getFullYear();
+		const dateString3 = "Todos os registros_" + `${day3}-${month3}-${year3}` + "_COMPLETO";
+		console.log(dateString3); // Exemplo de saída: 3-9-2024
+        // Get the div element by its ID
+        const dateDiv3 = document.getElementById('dateDiv3');
+        // Insert the date string into the div
+        dateDiv3.innerText = dateString3;
+    </script>
+        <div class="btn" id="d" onclick="copyDivToClipboard4()">
+    <span id="dateDiv4"></span>
+    </div>
+    <script>
+    function copyDivToClipboard4() {
+    var range = document.createRange();
+    range.selectNode(document.getElementById("d"));
+    window.getSelection().removeAllRanges(); // clear current selection
+    window.getSelection().addRange(range); // to select text
+    document.execCommand("copy");
+    window.getSelection().removeAllRanges();// to deselect
+    }
+    </script>
+        <script>
+        // Get the current date
+        const currentDate4 = new Date();
+		const day4 = currentDate.getDate();
+		const month4 = currentDate.getMonth() + 1; // Os meses são indexados a partir de 0
+		const year4 = currentDate.getFullYear();
+		const dateString4 = "Todos os registros_" + `${day4}-${month4}-${year4}` + "_11h";
+		console.log(dateString4); // Exemplo de saída: 3-9-2024
+        // Get the div element by its ID
+        const dateDiv4 = document.getElementById('dateDiv4');
+        // Insert the date string into the div
+        dateDiv4.innerText = dateString4;
+    </script>
+    <br>
+    <br>
+    Senha tablet Techbar:752861
+	</div>
+	<br>
+	<br>
+	<br>
+	<div class="borda">
+	<h2><p>Modelo de e-mail resposta para pedido de libera&ccedil;&atilde;o fora do novo padr&atilde;o</p></h2>
+	<hr>
+
+	<h2 style="background:#33b2ff;padding:20px;border-radius:10px">Global</h2>
+	<br>
+	Assunto:
+	<div class="box2">
+		<div id="global-assunto">
+			Fluxo de libera&ccedil;&atilde;o Global
+		</div>
+	</div>
+		<button class="btn" onclick="copyElementToClipboard('global-assunto');">Copiar</button>
+		<br>
+		<br>
+		Mensagem:
+    <div class="box2">
+    <div id="global">
+		<p>Prezados(as),</p>
+<p>Informamos que implementamos um novo processo para a libera&ccedil;&atilde;o de acesso ao escrit&oacute;rio, visando aprimorar a seguran&ccedil;a e o gerenciamento de dados. A partir de agora, as libera&ccedil;&otilde;es ser&atilde;o realizadas por anfitri&otilde;es no sistema de Portaria Virtual. Os anfitri&otilde;es respons&aacute;veis s&atilde;o Banda V+, BP&rsquo;s e Facilities Global. <strong>Para obter a libera&ccedil;&atilde;o de acesso, o anfitri&atilde;o da sua &aacute;rea dever&aacute; cadastr&aacute;-lo na <a href="https://portaria-global.governarti.com.br/login/?next=/">Portaria Virtual</a> com as seguintes informa&ccedil;&otilde;es:</strong></p>
+<br>
+<li>Nome completo:</li>
+<li>CPF:</li>
+<li>E-mail:</li>
+<li>Telefone (preferencialmente WhatsApp):</li>
+<br>
+<p>Com essas informa&ccedil;&otilde;es, a <a href="https://portaria-global.governarti.com.br/login/?next=/">Portaria Virtual</a> gerar&aacute; um link contendo um v&iacute;deo de instru&ccedil;&otilde;es de seguran&ccedil;a sobre o pr&eacute;dio. Ap&oacute;s assistir ao v&iacute;deo completo, voc&ecirc; receber&aacute; a autoriza&ccedil;&atilde;o para acessar o escrit&oacute;rio. Lembramos que o anfitri&atilde;o &eacute; respons&aacute;vel por acompanhar os visitantes.</p>
+<p><strong>Para solicita&ccedil;&otilde;es de libera&ccedil;&atilde;o permanente de terceiros, seguem as diretrizes:</strong>
+<li>Somente funcion&aacute;rios GHQ Banda IV+ ou BPs poder&atilde;o solicitar a libera&ccedil;&atilde;o permanente, atrav&eacute;s dos e-mails: <a href="mailto:liberacao@ab-inbev.com">liberacao@ab-inbev.com</a> e <a href="mailto:facilities@ab-inbev.com">facilities@ab-inbev.com</a></li>
+<li>No corpo do e-mail, devem ser informados: Nome completo, CPF, e-mail corporativo e telefone do terceiro.</li>
+<li>Para libera&ccedil;&otilde;es tempor&aacute;rias, com prazo m&aacute;ximo de 90 dias, a solicita&ccedil;&atilde;o pode ser feita por funcion&aacute;rios GHQ Banda V+, BPs ou Facilities.</li></p>
+<br>
+<p>Agradecemos pela compreens&atilde;o e colabora&ccedil;&atilde;o.</p>
+    </div>
+</div>
+    <button class="btn" id="button1" onclick="copyElementToClipboard('global');">Copiar</button>
+	<br>
+	<br>
+	<br>
+	<hr>
+	<br>
+	<br>
+	<h2 style="background:#fa0;padding:20px;border-radius:10px">Bees/Growth</h2>
+	<br>
+	Assunto:
+	<div class="box1">
+		<div id="bees-assunto">
+			Fluxo de libera&ccedil;&atilde;o Bees/Growth
+		</div>
+	</div>
+		<button class="btn" onclick="copyElementToClipboard('bees-assunto');">Copiar</button>
+		<br>
+		<br>
+		Mensagem:
+    <div class="box1">
+    <div id="bees">
+    <p>Ol&#225;, tudo bem?&#8239;</p>
+<p>O @Facilities.Bees est&#225; implementando um novo processo de credenciamento na portaria para melhorar a seguran&#231;a e o gerenciamento de dados. Para realizarmos essa libera&#231;&#227;o, precisamos que seja enviado ao e-mail <a href="mailto:facilities.bees@ab-inbev.com">facilities.bees@ab-inbev.com</a>  das seguintes informa&#231;&#245;es:&#8239;</p>
+<br>
+<li>Nome completo:</li>
+<li>CPF:</li>
+<li>Email:</li>
+<li>Telefone (de prefer&#234;ncia, WhatsApp):</li>
+<br>
+<p>Com essas informa&#231;&#245;es, nossa equipe ir&#225; gerar um&#8239;link&#8239;contendo um v&#237;deo de poucos minutos com instru&#231;&#245;es de seguran&#231;a sobre o pr&#233;dio. Ap&#243;s assistir ao v&#237;deo completo, voc&#234; receber&#225; a libera&#231;&#227;o para acessar o escrit&#243;rio. Lembre-se de que o anfitri&#227;o &#233; respons&#225;vel por acompanhar os visitantes.&#8239;</p>
+<br>
+<p>Agradecemos a compreens&#227;o e colabora&#231;&#227;o.</p>
+    </div>
+</div>
+    <button class="btn" id="button1" onclick="copyElementToClipboard('bees');">Copiar</button>
+</div>
+<script>
+    window.onbeforeunload = function(){
+    return "Tem certeza que deseja fechar esta p&#225;gina? Suas notas ser&atilde;o perdidas!";
+}
+</script>
+    <script>
+function copyElementToClipboard(element) {
+  window.getSelection().removeAllRanges();
+  let range = document.createRange();
+  range.selectNode(typeof element === 'string' ? document.getElementById(element) : element);
+  window.getSelection().addRange(range);
+  document.execCommand('copy');
+  window.getSelection().removeAllRanges();
+}
+    </script>
+    <script>
+        // create a new `Date` object
+const now = new Date();
+
+// get the current date and time as a string
+const currentDateTime = now.toLocaleString();
+
+console.log(currentDateTime); // output: "7/20/2021, 2:28:15 PM" (will vary depending on your time zone)
+    </script>
+<script type="text/javascript">
+function checkDate() {
+    var date = new Date();
+    console.log(date.getDay());
+    console.log(date.getHours());
+    if(date.getHours() === 9 && date.getMinutes() === 30 && date.getSeconds() === 1) {
+        alert("Enviar relatórios!");
+    }
+}
+var dateLoop = setInterval(function() {
+    checkDate();
+},5000);
+</script>
+<script type="text/javascript">
+function myFunction () {
+    checkDate();
+    checkDate2();
+}
+var interval = setInterval(function () { myFunction(); }, 1);
+</script>
+    
+</body>
+</html>
