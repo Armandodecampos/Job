@@ -7,14 +7,14 @@
     <link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
     <style>
     body{
-    background:transparent;
+    background:#ddd;
 	padding:1%;
     }
     @media (orientation: landscape) {
     	body {
     		padding-right:5%;
 		padding-left:5%;
-        background:#eee;
+        background:#ddd;
 	     }
     }
     .btn{
@@ -96,7 +96,7 @@ input:focus{
     outline:none;
 }
 .btn2 {
-margin:auto;border-radius:50px;border: 2px outset #222;padding:10px;background:#070;font-weight:bold;color:white;box-shadow: 1px 1px 4px 1px #555;
+margin:auto;border-radius:50px;border: 2px outset #222;padding:15px;background:#070;font-weight:bold;color:white;box-shadow: 1px 1px 4px 1px #555;
 }
 .btn2:hover{
 cursor:pointer;
@@ -105,7 +105,7 @@ cursor:pointer;
 box-shadow: 0px 0px 3px 0px #555;
 }
 .geradorqrcode{
-margin:auto;border-radius:50px;padding:10px;box-shadow: 1px 1px 4px 1px #555;
+margin:auto;border-radius:50px;padding:15px;box-shadow: 1px 1px 4px 1px #555;
 }
 .geradorqrcode:focus{
 box-shadow: 0px 0px 3px 0px #555;outline:none;
@@ -115,6 +115,7 @@ cursor:pointer;
 }
 .qrcode{
 animation: fadeIn 5s forwards;display:none;
+      outline:5px solid #000;background:#fff;
 }
 @keyframes fadeIn {
     from { opacity:0; }
@@ -124,7 +125,7 @@ animation: fadeIn 5s forwards;display:none;
     padding:10px;padding-right:30px;padding-left:30px;border:1px solid black;box-shadow: 1px 1px 4px 1px #555;margin:0 auto;left:0;right:0;word-break: break-all;
 }
 .show:hover{
-    Font-size:40px;padding:10px;padding-right:30px;padding-left:30px;transition: 1s;box-shadow: 1px 1px 0px 10000px #555;
+    Font-size:40px;padding:10px;padding-right:30px;padding-left:30px;transition: 1s;box-shadow: 0px 0px 0px 10000px #555;background:#fff;color:#000;
 }
 .boxsetaparabaixo {
   filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
@@ -151,6 +152,35 @@ display:none;
   97% {height:50px;width:50px;opacity:1}
   100% {height:0px;width:0px;opacity:0}
 }
+#pergunta {
+font-size:18px;
+}
+
+#pergunta textarea {
+  height:25px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  border:1px solid #000;
+  font-size:18px;
+  text-align:center;
+  margin:5px;
+  background:#000;color:#fff;
+}
+
+#pergunta textarea::placeholder {
+  color: #fa0;
+}
+
+#t1 {
+width:50px;
+}
+#t3 {
+width:50px;
+}
+
     </style>
 </head>
 <body>
@@ -280,6 +310,24 @@ document.addEventListener("DOMContentLoaded", function(){
 <br><br><br><br>
 <input type="search" id="liberacao" class="liberacao">
 <br><br><br><br>
+<div id="pergunta">Chegou algum email d<textarea id="t1"></textarea><textarea id="t2"></textarea><br>solicitando liberação d<textarea id="t3"></textarea><textarea id="t4"></textarea>?</div><br>
+<button class="btn" id="botao-copiar">Copiar</button>
+
+<script>
+document.getElementById('t1').placeholder = '@';
+document.getElementById('t2').placeholder = 'anfitrião';
+document.getElementById('t3').placeholder = '@';
+document.getElementById('t4').placeholder = 'visitante';
+
+document.getElementById('botao-copiar').addEventListener('click', function() {
+  let texto = `Chegou algum email d${document.getElementById('t1').value || document.getElementById('t1').placeholder} ${document.getElementById('t2').value || document.getElementById('t2').placeholder} solicitando liberação d${document.getElementById('t3').value || document.getElementById('t3').placeholder} ${document.getElementById('t4').value || document.getElementById('t4').placeholder}?`;
+  
+  navigator.clipboard.writeText(texto.replace(/\s+/g, ' ')).then(() => {
+  });
+});
+
+</script>
+<br><br><br><br>
 <div class="borda">
 <p>Atalhos:</p>
           <button class="btn" onclick="copy('http://192.168.7.9:8098/main.do?home');toque()">ZKBioSecurity</button><br>
@@ -290,6 +338,16 @@ document.addEventListener("DOMContentLoaded", function(){
           <script>
         function copy(txt) {
           var cb = document.getElementById("cb");
+          cb.value = txt;
+          cb.style.display = 'block';
+          cb.select();
+          document.execCommand('copy');
+          cb.style.display = 'none';
+        }
+      </script>
+      <script>
+        function copy(txt) {
+          var cb = document.getElementById("pergunta");
           cb.value = txt;
           cb.style.display = 'block';
           cb.select();
