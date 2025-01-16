@@ -177,10 +177,15 @@ font-size:18px;
 #t1 {
 width:50px;
 }
+#t2 {
+width:100%;
+}
 #t3 {
 width:50px;
 }
-
+#t4 {
+width:100%;
+}
     </style>
 </head>
 <body>
@@ -311,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function(){
 <input type="search" id="liberacao" class="liberacao">
 <br><br><br><br>
 <div id="pergunta">Chegou algum email d<textarea id="t1"></textarea><textarea id="t2"></textarea><br>solicitando liberação d<textarea id="t3"></textarea><textarea id="t4"></textarea>?</div><br>
-<button class="btn" id="botao-copiar">Copiar</button>
+<button class="btn" id="botao-copiar" style="background:#cfc">Copiar</button><button class="btn" onclick="limparTextareas()" style="background:#f55">Limpar Campos</button>
 
 <script>
 document.getElementById('t1').placeholder = '@';
@@ -326,6 +331,14 @@ document.getElementById('botao-copiar').addEventListener('click', function() {
   });
 });
 
+</script>
+<script>
+function limparTextareas() {
+    const textareas = document.querySelectorAll('#pergunta textarea');
+    textareas.forEach(textarea => {
+        textarea.value = '';
+    });
+}
 </script>
 <br><br><br><br>
 <div class="borda">
