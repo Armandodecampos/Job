@@ -317,32 +317,40 @@ document.addEventListener("DOMContentLoaded", function(){
     <script>
         function processData() {
             const input = document.getElementById("inputData").value;
-            const regex = /Visitante:\s*(.*?)\s*-\s*(\d{3}\.\d{3}\.\d{3}-\d{2})\s*Telefone:\s*\((\d{2})\)\s*(\d{5}-\d{4})\s*Email:\s*(\S+)/s;
-            const match = input.match(regex);
             
-            if (match) {
-                const nome = match[1];
-                const cpf = match[2].replace(/\D/g, '');
-                const telefone = match[3] + match[4].replace(/\D/g, '');
-                const email = match[5];
-                
-                document.getElementById("output").innerHTML = `
-                    <div class="info-box" onclick="copyToClipboard('${nome}')">Nome: ${nome}</div>
-                    <div class="info-box" onclick="copyToClipboard('${cpf}')">CPF: ${cpf}</div>
-                    <div class="info-box" onclick="copyToClipboard('${telefone}')">Telefone: ${telefone}</div>
-                    <div class="info-box" onclick="copyToClipboard('${email}')">Email: ${email}</div>
-                `;
+            const nomeMatch = input.match(/Visitante:\s*(.*?)\s*-\s*(\d{3}\.\d{3}\.\d{3}-\d{2})?/);
+            const telefoneMatch = input.match(/Telefone:\s*\((\d{2})\)\s*(\d{5}-\d{4})/);
+            const emailMatch = input.match(/Email:\s*(\S+)/);
+            
+            let nome = nomeMatch ? nomeMatch[1] : null;
+            let cpf = nomeMatch && nomeMatch[2] ? nomeMatch[2].replace(/\D/g, '') : null;
+            let telefone = telefoneMatch ? telefoneMatch[1] + telefoneMatch[2].replace(/\D/g, '') : null;
+            let email = emailMatch ? emailMatch[1] : null;
+            
+            let outputHtml = "";
+            if (nome) outputHtml += `<div class="info-box" onclick="copyToClipboard(this, '${nome}')">Nome: ${nome}</div>`;
+            if (cpf) outputHtml += `<div class="info-box" onclick="copyToClipboard(this, '${cpf}')">CPF: ${cpf}</div>`;
+            if (telefone) outputHtml += `<div class="info-box" onclick="copyToClipboard(this, '${telefone}')">Telefone: ${telefone}</div>`;
+            if (email) outputHtml += `<div class="info-box" onclick="copyToClipboard(this, '${email}')">Email: ${email}</div>`;
+            
+            if (outputHtml) {
+                document.getElementById("output").innerHTML = outputHtml;
             } else {
-                alert("Formato inválido");
+                alert("Nenhuma informação válida encontrada");
             }
         }
         
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).catch(err => {
+        function copyToClipboard(element, text) {
+            navigator.clipboard.writeText(text).then(() => {
+                element.style.backgroundColor = '#d4edda';
+                setTimeout(() => {
+                    element.style.backgroundColor = '#f9f9f9';
+                }, 500);
+            }).catch(err => {
                 console.error("Erro ao copiar: ", err);
             });
         }
-    </script> 
+    </script>
 <br>
 <br>
 <br>
