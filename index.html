@@ -276,11 +276,10 @@ document.getElementsByClassName('qrcode')[0].style.display = 'none';
 <br>
 <br>
 <br>
-<iframe class="qrcode" id="qrcode" src="" width="250" height="250" style="border:0px solid #111;"></iframe>
+<iframe class="qrcode" id="qrcode" src="" width="250" height="250" style="border:0px solid #111;padding:20px"></iframe>
 <script>
     function UpdateQRCode(val){
-        
-    document.getElementById("qrcode").setAttribute("src","https://api.mimfa.net/qrcode?value="+encodeURIComponent(val)+"&as=value");
+    document.getElementById("qrcode").setAttribute("src", "https://api.qrserver.com/v1/create-qr-code/?data=" + encodeURIComponent(val) + "&size=250x250");
 }
 document.addEventListener("DOMContentLoaded", function(){
     UpdateQRCode(document.getElementById("qrcode").value);
@@ -533,32 +532,6 @@ function limparTextareas() {
         // Insert the date string into the div
         dateDiv3.innerText = dateString3;
     </script>
-        <div class="btn" id="d" onclick="copyDivToClipboard4()">
-    <span id="dateDiv4"></span>
-    </div>
-    <script>
-    function copyDivToClipboard4() {
-    var range = document.createRange();
-    range.selectNode(document.getElementById("d"));
-    window.getSelection().removeAllRanges(); // clear current selection
-    window.getSelection().addRange(range); // to select text
-    document.execCommand("copy");
-    window.getSelection().removeAllRanges();// to deselect
-    }
-    </script>
-        <script>
-        // Get the current date
-        const currentDate4 = new Date();
-		const day4 = currentDate.getDate();
-		const month4 = currentDate.getMonth() + 1; // Os meses são indexados a partir de 0
-		const year4 = currentDate.getFullYear();
-		const dateString4 = "Todos os registros_" + `${day4}-${month4}-${year4}` + "_11h";
-		console.log(dateString4); // Exemplo de saída: 3-9-2024
-        // Get the div element by its ID
-        const dateDiv4 = document.getElementById('dateDiv4');
-        // Insert the date string into the div
-        dateDiv4.innerText = dateString4;
-    </script>
     <br>
     <br>
     Senha tablet Techbar:752861
@@ -677,9 +650,8 @@ var dateLoop = setInterval(function() {
 <script type="text/javascript">
 function myFunction () {
     checkDate();
-    checkDate2();
 }
-var interval = setInterval(function () { myFunction(); }, 1);
+var interval = setInterval(function () { myFunction(); }, 1000); 
 </script>
 <script>
     // Referenciar o textarea
