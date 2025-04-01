@@ -754,19 +754,19 @@ var interval = setInterval(function () { myFunction(); }, 1000);
         <video id="video" autoplay></video>
         <canvas id="canvas" width="300" height="400"></canvas>
         <div class="btn-container">
-            <button class="btncamera" id="captureButton" onclick="takePhoto()">
-    <i class="fas fa-camera"></i>
-</button>
-            <button class="btncamera"id="downloadButton" onclick="downloadPhoto()">
-                <i class="fas fa-download"></i>
-            </button>
-            <button class="btncamera" id="newPhotoButton" onclick="newPhoto()" style="display: none;">
+            <button class="btncamera" style="background:#fffacd" id="newPhotoButton" onclick="newPhoto()" style="display: none;">
     <i class="fas fa-trash-alt"></i>
 </button>
-            <button class="btncamera" id="cameraSwitchButton" onclick="switchCamera()">
+            <button class="btncamera" style="background:#fffacd" id="cameraSwitchButton" onclick="switchCamera()">
     <i class="fas fa-sync-alt"></i>
 </button>
-            <button class="btncamera" class="exit-button" onclick="exitCamera()">
+<button class="btncamera" style="background:#7f7;width:80px;height:80px;font-size:25px;bottom:100px" id="captureButton" onclick="takePhoto()">
+    <i class="fas fa-camera"></i>
+</button>
+<button class="btncamera" style="background:#7f7;width:80px;height:80px;font-size:25px;bottom:100px" id="downloadButton" onclick="downloadPhoto()">
+                <i class="fas fa-download"></i>
+            </button>
+            <button class="btncamera" style="background:#f77" class="exit-button" onclick="exitCamera()">
     <i class="fas fa-sign-out-alt"></i>
 </button>
         </div>
@@ -796,16 +796,16 @@ function startCamera() {
     const screenHeight = window.innerHeight;
 
     let videoWidth = screenWidth;
-    let videoHeight = (screenWidth * 4) / 3;
+    let videoHeight = (screenWidth * 100) / 85.11; // Ajuste para 85.11% de largura
 
     if (videoHeight > screenHeight) {
         videoHeight = screenHeight;
-        videoWidth = (screenHeight * 3) / 4;
+        videoWidth = (screenHeight * 85.11) / 100; // Ajuste para 85.11% de largura
     }
 
     if (screenWidth > 700) {
         videoWidth = Math.min(videoWidth, 700);
-        videoHeight = (videoWidth * 4) / 3;
+        videoHeight = (videoWidth * 100) / 85.11; // Ajuste para 85.11% de largura
     }
 
     video.width = videoWidth;
@@ -817,7 +817,7 @@ function startCamera() {
         video: {
             width: { ideal: videoWidth },
             height: { ideal: videoHeight },
-            aspectRatio: { ideal: 3 / 4 },
+            aspectRatio: videoWidth / videoHeight, // Mantém a proporção
             facingMode: facingMode
         }
     };
@@ -842,15 +842,15 @@ function stopCamera() {
 }
 
 function takePhoto() {
-    // Ajuste as dimensões do canvas para 3:4
+    // Ajuste as dimensões do canvas para 85.11%
     let width = video.videoWidth;
     let height = video.videoHeight;
     let aspectRatio = width / height;
 
-    if (aspectRatio > 3 / 4) {
-        width = height * 3 / 4;
+    if (aspectRatio > 85.11 / 100) {
+        width = height * 85.11 / 100;
     } else {
-        height = width * 4 / 3;
+        height = width * 100 / 85.11;
     }
 
     canvas.width = width;
@@ -873,7 +873,7 @@ function takePhoto() {
 function downloadPhoto() {
     let link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
-    link.download = 'foto_3x4.png';
+    link.download = 'foto_85_11.png';
     link.click();
 }
 
