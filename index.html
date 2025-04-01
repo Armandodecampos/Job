@@ -216,10 +216,9 @@ width:100%;
     bottom: 0;
     left: 0;
     right: 0;
-    border: 5px solid #900;
     flex-direction: column;
     align-items: center;
-    background: white;
+    background: #111;
     justify-content: center;
     overflow: hidden;
 }
@@ -228,6 +227,7 @@ width:100%;
     height: auto;
     object-fit: cover;
     aspect-ratio: 3 / 4; /* Força a proporção 3:4 */
+    border:1px solid #fff;
 }
 
 @media (min-width: 701px) {
@@ -243,7 +243,7 @@ width:100%;
 }
 .btn-container {
     position: fixed;
-    bottom: 10px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -251,18 +251,7 @@ width:100%;
     z-index: 2; /* Assegura que os botões fiquem sobre a imagem da câmera */
 
 }
-button {
-    background: #222;
-    color:#fff;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
-    border:2px solid #000;
-}
+
 .camera-toggle {
     position: fixed;
     top: 10px;
@@ -277,17 +266,21 @@ button {
     z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
     border:2px solid #000;
 }
-.exit-button {
-    background: #a00;
-    color:#fff;
+
+.btncamera{
+    background: #fff;
+    color:#000;
     border: none;
     font-size: 24px;
     cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
+    width:70px;
+    height:70px;
+    padding: 20px;
+    border-radius: 50%;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
     border:2px solid #000;
+    font-size:20px;
 }
     </style>
 </head>
@@ -753,19 +746,29 @@ var interval = setInterval(function () { myFunction(); }, 1000);
         localStorage.setItem('textareaContent', textarea.value);
     });
 </script>
-    <button class="camera-toggle" onclick="toggleCamera()">📷</button>
+    <button class="camera-toggle" onclick="toggleCamera()">
+    <i class="fas fa-camera"></i>
+    </button>
     
     <div class="camera-container" id="cameraContainer">
         <video id="video" autoplay></video>
         <canvas id="canvas" width="300" height="400"></canvas>
         <div class="btn-container">
-            <button id="captureButton" onclick="takePhoto()">📸 Capturar</button>
-            <button id="downloadButton" onclick="downloadPhoto()">
-                <i class="fas fa-download"></i> Baixar
+            <button class="btncamera" id="captureButton" onclick="takePhoto()">
+    <i class="fas fa-camera"></i>
+</button>
+            <button class="btncamera"id="downloadButton" onclick="downloadPhoto()">
+                <i class="fas fa-download"></i>
             </button>
-            <button id="newPhotoButton" onclick="newPhoto()" style="display: none;">🔄 Nova Foto</button>
-            <button  id="cameraSwitchButton" onclick="switchCamera()" style="background: #222; color: #fff; border: none; font-size: 24px; cursor: pointer; padding: 10px; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); z-index: 2; border: 2px solid #000;">Trocar Câmera</button>
-            <button class="exit-button" onclick="exitCamera()">❌ Sair</button>
+            <button class="btncamera" id="newPhotoButton" onclick="newPhoto()" style="display: none;">
+    <i class="fas fa-trash-alt"></i>
+</button>
+            <button class="btncamera" id="cameraSwitchButton" onclick="switchCamera()">
+    <i class="fas fa-sync-alt"></i>
+</button>
+            <button class="btncamera" class="exit-button" onclick="exitCamera()">
+    <i class="fas fa-sign-out-alt"></i>
+</button>
         </div>
     </div>
 
