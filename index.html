@@ -804,26 +804,24 @@ function startCamera() {
         videoHeight = (videoWidth * 4) / 3;
     }
 
-    // Configura as dimensões do vídeo e canvas
     video.width = videoWidth;
     video.height = videoHeight;
     canvas.width = 300;
     canvas.height = 400;
 
-    // Configura as constraints para a câmera
     const constraints = {
         video: {
             width: { ideal: videoWidth },
             height: { ideal: videoHeight },
             aspectRatio: { ideal: 3 / 4 },
-            facingMode: facingMode // Usa a variável facingMode
+            facingMode: facingMode
         }
     };
 
     navigator.mediaDevices.getUserMedia(constraints)
         .then(function (mediaStream) {
             if (stream) {
-                stream.getTracks().forEach(track => track.stop()); // Para a câmera anterior
+                stream.getTracks().forEach(track => track.stop());
             }
             stream = mediaStream;
             video.srcObject = mediaStream;
@@ -831,9 +829,7 @@ function startCamera() {
         .catch(function (error) {
             console.error('Erro ao acessar a câmera: ', error);
         });
-    
 }
-
 function stopCamera() {
     if (stream) {
         stream.getTracks().forEach(track => track.stop());
@@ -877,6 +873,7 @@ function exitCamera() {
 
 function switchCamera() {
     facingMode = facingMode === 'user' ? 'environment' : 'user';
+    stopCamera(); // Pare o fluxo de mídia atual antes de iniciar um novo
     startCamera();
 }
 
