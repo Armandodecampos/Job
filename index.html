@@ -806,8 +806,8 @@ function startCamera() {
 
     video.width = videoWidth;
     video.height = videoHeight;
-    canvas.width = 300;
-    canvas.height = 400;
+    canvas.width = videoWidth; // Ajuste o canvas para a largura do vídeo
+    canvas.height = videoHeight; // Ajuste o canvas para a altura do vídeo
 
     const constraints = {
         video: {
@@ -830,6 +830,7 @@ function startCamera() {
             console.error('Erro ao acessar a câmera: ', error);
         });
 }
+
 function stopCamera() {
     if (stream) {
         stream.getTracks().forEach(track => track.stop());
@@ -837,14 +838,13 @@ function stopCamera() {
 }
 
 function takePhoto() {
-    context.drawImage(video, 0, 0, 300, 400);
+    context.drawImage(video, 0, 0, video.width, video.height); // Use as dimensões do vídeo
     canvas.style.display = 'block';
     video.style.display = 'none';
     document.getElementById('captureButton').style.display = 'none';
     document.getElementById('cameraSwitchButton').style.display = 'none';
     document.getElementById('downloadButton').style.display = 'inline-block';
     document.getElementById('newPhotoButton').style.display = 'inline-block';
-    
 }
 
 function downloadPhoto() {
@@ -861,7 +861,6 @@ function newPhoto() {
     document.getElementById('newPhotoButton').style.display = 'none';
     document.getElementById('cameraSwitchButton').style.display = 'inline-block';
     document.getElementById('captureButton').style.display = 'inline-block';
-    
 }
 
 function exitCamera() {
@@ -869,14 +868,11 @@ function exitCamera() {
     stopCamera();
 }
 
-
-
 function switchCamera() {
     facingMode = facingMode === 'user' ? 'environment' : 'user';
-    stopCamera(); // Pare o fluxo de mídia atual antes de iniciar um novo
+    stopCamera();
     startCamera();
 }
-
 
 // Esconde o botão de download no carregamento inicial da página
 document.getElementById('downloadButton').style.display = 'none';
