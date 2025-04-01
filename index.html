@@ -227,6 +227,7 @@ width:100%;
     width: 100%;
     height: auto;
     object-fit: cover;
+    aspect-ratio: 3 / 4; /* Força a proporção 3:4 */
 }
 
 @media (min-width: 701px) {
@@ -806,8 +807,8 @@ function startCamera() {
 
     video.width = videoWidth;
     video.height = videoHeight;
-    canvas.width = videoWidth; // Ajuste o canvas para a largura do vídeo
-    canvas.height = videoHeight; // Ajuste o canvas para a altura do vídeo
+    canvas.width = videoWidth;
+    canvas.height = videoHeight;
 
     const constraints = {
         video: {
@@ -838,7 +839,26 @@ function stopCamera() {
 }
 
 function takePhoto() {
-    context.drawImage(video, 0, 0, video.width, video.height); // Use as dimensões do vídeo
+    // Ajuste as dimensões do canvas para 3:4
+    let width = video.videoWidth;
+    let height = video.videoHeight;
+    let aspectRatio = width / height;
+
+    if (aspectRatio > 3 / 4) {
+        width = height * 3 / 4;
+    } else {
+        height = width * 4 / 3;
+    }
+
+    canvas.width = width;
+    canvas.height = height;
+
+    // Desenhe a imagem no canvas centralizada
+    let xOffset = (video.videoWidth - width) / 2;
+    let yOffset = (video.videoHeight - height) / 2;
+
+    context.drawImage(video, xOffset, yOffset, width, height, 0, 0, width, height);
+
     canvas.style.display = 'block';
     video.style.display = 'none';
     document.getElementById('captureButton').style.display = 'none';
