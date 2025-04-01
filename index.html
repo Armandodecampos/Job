@@ -5,6 +5,8 @@
     <title>Tools</title>
     <link rel="icon" href="https://archive.org/download/FingerSnapLogo_201602/FingerSnapLogo.jpg">
     <link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <style>
     body{
     background:#ddd;
@@ -207,79 +209,83 @@ width:100%;
             font-size:18px;
         }
         .camera-container {
-            display: none;
-            z-index: 10;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            border: 5px solid #900;
-            flex-direction: column;
-            align-items: center;
-            background: white;
-            justify-content: center;
-            overflow: hidden;
-        }
-        #video, #canvas {
-       height: auto;  /* Mantém a proporção */
-    width: 100%;   /* A largura será 100% da tela */
-    max-width: 650px;  /* Define uma largura máxima para a câmera */
-    background: black;
-    position: absolute;
+    display: none;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 5px solid #900;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    justify-content: center;
+    overflow: hidden;
 }
-        #canvas {
-            display: none;
-            z-index: 1;
-        }
-        .btn-container {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 2; /* Assegura que os botões fiquem sobre a imagem da câmera */
-            
-        }
-        button {
-            background: #222;
-            color:#fff;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
-            border:2px solid #000;
-        }
-        .camera-toggle {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background: white;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 50%;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
-            border:2px solid #000;
-        }
-        .exit-button {
-            background: #a00;
-            color:#fff;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
-            border:2px solid #000;
-        }
+#video, #canvas {
+    width: 100%;
+    height: auto;
+}
+
+/* Adicionar uma largura máxima para telas maiores */
+@media (min-width: 701px) {
+    #video, #canvas {
+        max-width: 700px;
+    }
+}
+#canvas {
+    display: none;
+    z-index: 2; /* Aumente o z-index para sobrepor o vídeo */
+}
+.btn-container {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2; /* Assegura que os botões fiquem sobre a imagem da câmera */
+
+}
+button {
+    background: #222;
+    color:#fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
+    border:2px solid #000;
+}
+.camera-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
+    border:2px solid #000;
+}
+.exit-button {
+    background: #a00;
+    color:#fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
+    border:2px solid #000;
+}
     </style>
 </head>
 <body>
@@ -751,74 +757,97 @@ var interval = setInterval(function () { myFunction(); }, 1000);
         <canvas id="canvas" width="300" height="400"></canvas>
         <div class="btn-container">
             <button id="captureButton" onclick="takePhoto()">📸 Capturar</button>
-            <button id="downloadButton" onclick="downloadPhoto()" style="display: none;">💾 Baixar</button>
+            <button id="downloadButton" onclick="downloadPhoto()">
+    <i class="fas fa-download"></i> Baixar
+</button>
             <button id="newPhotoButton" onclick="newPhoto()" style="display: none;">🔄 Nova Foto</button>
             <button class="exit-button" onclick="exitCamera()">❌ Sair</button> <!-- Botão de sair ao lado dos outros -->
         </div>
     </div>
 
     <script>
-        let video = document.getElementById('video');
-        let canvas = document.getElementById('canvas');
-        let context = canvas.getContext('2d');
-        let cameraContainer = document.getElementById('cameraContainer');
-        let stream = null;
+let video = document.getElementById('video');
+let canvas = document.getElementById('canvas');
+let context = canvas.getContext('2d');
+let cameraContainer = document.getElementById('cameraContainer');
+let stream = null;
 
-        function toggleCamera() {
-            if (cameraContainer.style.display === 'none' || cameraContainer.style.display === '') {
-                cameraContainer.style.display = 'flex';
-                startCamera();
-            } else {
-                cameraContainer.style.display = 'none';
-                stopCamera();
-            }
-        }
+function toggleCamera() {
+    if (cameraContainer.style.display === 'none' || cameraContainer.style.display === '') {
+        cameraContainer.style.display = 'flex';
+        startCamera();
+    } else {
+        cameraContainer.style.display = 'none';
+        stopCamera();
+    }
+}
 
-        function startCamera() {
-            navigator.mediaDevices.getUserMedia({ video: { width: 300, height: 400 } })
-                .then(function (mediaStream) {
-                    stream = mediaStream;
-                    video.srcObject = mediaStream;
-                })
-                .catch(function (error) {
-                    console.error('Erro ao acessar a câmera: ', error);
-                });
-        }
+function startCamera() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
 
-        function stopCamera() {
-            if (stream) {
-                stream.getTracks().forEach(track => track.stop());
-            }
-        }
+    let videoWidth = screenWidth;
+    let videoHeight = (screenWidth * 4) / 3;
 
-        function takePhoto() {
-            context.drawImage(video, 0, 0, 300, 400);
-            canvas.style.display = 'block';
-            document.getElementById('captureButton').style.display = 'none'; // Esconde o botão de capturar
-            document.getElementById('downloadButton').style.display = 'inline-block'; // Exibe o botão de baixar
-            document.getElementById('newPhotoButton').style.display = 'inline-block'; // Exibe o botão de nova foto
-        }
+    if (videoHeight > screenHeight) {
+        videoHeight = screenHeight;
+        videoWidth = (screenHeight * 3) / 4;
+    }
 
-        function downloadPhoto() {
-            let link = document.createElement('a');
-            link.href = canvas.toDataURL('image/png');
-            link.download = 'foto_3x4.png';
-            link.click();
-        }
+    if (screenWidth > 700) {
+        videoWidth = Math.min(videoWidth, 700);
+        videoHeight = (videoWidth * 4) / 3;
+    }
 
-        function newPhoto() {
-            // Esconde a imagem e os botões de download e nova foto
-            canvas.style.display = 'none';
-            document.getElementById('downloadButton').style.display = 'none';
-            document.getElementById('newPhotoButton').style.display = 'none';
-            document.getElementById('captureButton').style.display = 'inline-block'; // Exibe o botão de capturar novamente
-        }
+    video.width = videoWidth;
+    video.height = videoHeight;
+    canvas.width = 300;
+    canvas.height = 400;
 
-        function exitCamera() {
-            // Fecha a câmera e esconde a container
-            cameraContainer.style.display = 'none';
-            stopCamera();
-        }
-    </script>    
+    navigator.mediaDevices.getUserMedia({ video: { width: { ideal: videoWidth }, height: { ideal: videoHeight } } })
+        .then(function (mediaStream) {
+            stream = mediaStream;
+            video.srcObject = mediaStream;
+        })
+        .catch(function (error) {
+            console.error('Erro ao acessar a câmera: ', error);
+        });
+}
+
+function stopCamera() {
+    if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+    }
+}
+
+function takePhoto() {
+    context.drawImage(video, 0, 0, 300, 400);
+    canvas.style.display = 'block';
+    video.style.display = 'none'; // Esconde o vídeo
+    document.getElementById('captureButton').style.display = 'none';
+    document.getElementById('downloadButton').style.display = 'inline-block';
+    document.getElementById('newPhotoButton').style.display = 'inline-block';
+}
+
+function downloadPhoto() {
+    let link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png');
+    link.download = 'foto_3x4.png';
+    link.click();
+}
+
+function newPhoto() {
+    canvas.style.display = 'none';
+    video.style.display = 'block'; // Mostra o vídeo
+    document.getElementById('downloadButton').style.display = 'none';
+    document.getElementById('newPhotoButton').style.display = 'none';
+    document.getElementById('captureButton').style.display = 'inline-block';
+}
+
+function exitCamera() {
+    cameraContainer.style.display = 'none';
+    stopCamera();
+}
+</script>  
 </body>
 </html>
