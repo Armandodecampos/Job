@@ -889,25 +889,27 @@ var interval = setInterval(function () { myFunction(); }, 1000);
 <div id="shutterOverlay"></div>  
 <script>
 function toggleCamera() {
-  const cameraDiv = document.getElementById('cameraContainer'); // Substitua 'suaDivId' pelo ID real da sua div
+    const cameraDiv = document.getElementById('cameraContainer');
 
-  if (cameraDiv) {
-    if (cameraDiv.style.display === 'none' || cameraDiv.style.display === '') {
-      cameraDiv.style.display = 'flex'; // Ou outro valor de display desejado (flex, grid, etc.)
-    } else {
-      cameraDiv.style.display = 'none';
-    }
-  } else {
-    console.error("A div com o ID 'suaDivId' não foi encontrada.");
-  }
+    if (cameraDiv.style.display === 'none' || cameraDiv.style.display === '') {
+        cameraDiv.style.display = 'flex';
+        startCamera(); // Inicia a câmera somente quando abre
+    } else {
+        cameraDiv.style.display = 'none';
+        stopCamera(); // Para a câmera ao fechar
+    }
 }
+
 
 function exitCamera() {
     const cameraContainer = document.getElementById("cameraContainer");
+
     if (cameraContainer) {
         cameraContainer.style.display = "none";
+        stopCamera(); // Garante que a câmera seja desligada ao sair
     }
 }
+
 
 
     let video = document.getElementById('video');
@@ -1112,10 +1114,11 @@ function exitCamera() {
     }
 
     window.onload = function () {
-        document.getElementById('downloadButton').style.display = 'none';
-        document.getElementById('newPhotoButton').style.display = 'none';
-        startCamera();
-    };
+    document.getElementById('downloadButton').style.display = 'none';
+    document.getElementById('newPhotoButton').style.display = 'none';
+};
+
+
 </script>
  
 </body>
