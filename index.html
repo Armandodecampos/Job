@@ -209,18 +209,24 @@ width:100%;
             font-size:18px;
         }
         .camera-toggle {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: white;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    z-index: 2; /* Garante que o botão da câmera fique acima da imagem */
-    border:2px solid #000;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid #000;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Remove sublinhado */
+  color: inherit; /* Herdar cor (ou definir se quiser) */
 }
         .camera-container {
             z-index: 10;
@@ -455,6 +461,48 @@ width:100%;
   #copyReportButton:hover {
     background-color: #005f73;
   }
+
+.relatorio-botao {
+  position: fixed;
+  top: 70px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid #000;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Remove sublinhado */
+  color: inherit; /* Herdar cor (ou definir se quiser) */
+}
+
+.pesquisa-de-pessoas {
+  position: fixed;
+  top: 130px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 2px solid #000;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none; /* Remove sublinhado */
+  color: inherit; /* Herdar cor (ou definir se quiser) */
+}
     </style>
 </head>
 <body>
@@ -1189,6 +1237,12 @@ function exitCamera() {
 
 
 </script>
- 
+<button class="relatorio-botao" onclick="window.open('https://armandodecampos.github.io/Relat-rio-de-pessoas-por-departamentos/', '_blank')">
+  <i class="fas fa-file-alt"></i>
+</button>
+<button class="pesquisa-de-pessoas" 
+        onclick="window.open('https://armandodecampos.github.io/pesquisa-de-dados/', '_blank')">
+        <i class="fas fa-search"></i>
+</button>
 </body>
 </html>
