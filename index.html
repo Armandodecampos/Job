@@ -90,15 +90,17 @@ margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:#d
 .boxcriarqrcode{
     display:flex;
     margin:auto;
-    width:300px;
-    
+    margin-top:200px;
+    width:90%;
+    max-width:700px;
+    gap:10px;    
 }
 input:focus{
     box-shadow: 0px 0px 3px 1px #555;
     outline:none;
 }
 .btn2 {
-margin:auto;border-radius:50px;border: 2px outset #222;padding:15px;background:#070;font-weight:bold;color:white;box-shadow: 1px 1px 4px 1px #555;
+margin:auto;border-radius:50%;border: 2px outset #222;padding:15px;background:#070;font-weight:bold;color:white;box-shadow: 1px 1px 4px 1px #555;width:70px;aspect-ratio:1/1;
 }
 .btn2:hover{
 cursor:pointer;
@@ -107,7 +109,7 @@ cursor:pointer;
 box-shadow: 0px 0px 3px 0px #555;
 }
 .geradorqrcode{
-margin:auto;border-radius:50px;padding:15px;box-shadow: 1px 1px 4px 1px #555;
+margin:auto;border-radius:50px;padding:15px;box-shadow: 1px 1px 4px 1px #555;width:1000px;
 }
 .geradorqrcode:focus{
 box-shadow: 0px 0px 3px 0px #555;outline:none;
@@ -208,26 +210,7 @@ width:100%;
             padding:10px; 
             font-size:18px;
         }
-        .camera-toggle {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  width: 50px;
-  height: 50px;
-  background: white;
-  border: 2px solid #000;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none; /* Remove sublinhado */
-  color: inherit; /* Herdar cor (ou definir se quiser) */
-}
+
         .camera-container {
             z-index: 10;
             position: fixed;
@@ -462,93 +445,47 @@ width:100%;
     background-color: #005f73;
   }
 
-.relatorio-botao {
-  position: fixed;
-  top: 70px;
-  right: 10px;
-  width: 50px;
-  height: 50px;
-  background: white;
-  border: 2px solid #000;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 2;
+.botoes {
+ display: flex;
+  flex-direction: row;
+    position: fixed;
+  top: 0px;
+  left: 0px;
+right:0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none; /* Remove sublinhado */
-  color: inherit; /* Herdar cor (ou definir se quiser) */
+  flex-direction: row;
+  gap: 10px;
+  z-index: 999;
+  flex-wrap: wrap; /* Para permitir quebra de linha */
+  background:#ddd;
+  padding:10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.pesquisa-de-pessoas {
-  position: fixed;
-  top: 130px;
-  right: 10px;
+
+/* Estilo base compartilhado entre os botões */
+.botoes button {
   width: 50px;
   height: 50px;
-  background: white;
+  background: #eee;
   border: 2px solid #000;
   font-size: 24px;
   cursor: pointer;
-  padding: 10px;
   border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none; /* Remove sublinhado */
-  color: inherit; /* Herdar cor (ou definir se quiser) */
+  color: black;
 }
+
     </style>
 </head>
 <body>
     <center>
-    <span id="datetime"></span>
-    <div id="real-time-clock" style="position:fixed;margin:auto;bottom:0;left:0;right:0;padding:5px;padding-left:10px;padding-right:15px;background:#eee;border-radius:0px 0px 0px 0px;box-shadow: 0px 0px 5px 1px #555;z-index:2"></div>
-    <script>
-function updateDateTime() {
-    const clockElement = document.getElementById('real-time-clock');
-    const currentTime = new Date();
-
-    // Define arrays for days of the week and months to format the day and month names.
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const dayOfWeek = daysOfWeek[currentTime.getDay()];
-
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    const month = months[currentTime.getMonth()];
-
-    const day = currentTime.getDate();
-    const year = currentTime.getFullYear();
-
-    // Calculate and format hours (in 12-hour format), minutes, seconds, and AM/PM.
-    let hours = currentTime.getHours();
-    const ampm = hours >= 12 ? 'PM' : 'AM';
-    hours = hours % 12 || 12;
-    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
-    const seconds = currentTime.getSeconds().toString().padStart(2, '0');
-
-    // Construct the date and time string in the desired format.
-    const dateTimeString = `${dayOfWeek}, ${month} ${day}, ${year} - ${hours}:${minutes}:${seconds} ${ampm}`;
-    clockElement.textContent = dateTimeString;
-}
-
-// Update the date and time every second (1000 milliseconds).
-setInterval(updateDateTime, 1000);
-
-// Initial update.
-updateDateTime();
-</script>
-<br>
-<br>
-<br>
-<br>
-<h3 style="color:#555;">Gerador de QR Code</h3>
-<div class="boxcriarqrcode">
-<input type="search" class="geradorqrcode" onchange="UpdateQRCode(this.value)" placeholder="Insira o link aqui..."/><br><br>
+<h4 style="margin-top:200px;color:#555">Gerador de QR code</h4>
+<div class="boxcriarqrcode" style="margin-top:10px">
+<input type="search" class="geradorqrcode" onchange="UpdateQRCode(this.value)" placeholder=""/><br><br>
 <button class="btn2" onclick="clickHandler()">Gerar</button>
 </div>
 <script>
@@ -598,6 +535,31 @@ document.addEventListener("DOMContentLoaded", function(){
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<textarea class="textarea" placeholder='Anote algo temporário aqui'></textarea>
+<input type="search" id="liberacao" class="liberacao">
 <br>
 <br>
 <br>
@@ -692,37 +654,37 @@ function limparTextareaDados() {
     
 
     </center>
+    
     <br>
     <br>
-<textarea class="textarea" placeholder='Anote algo temporário aqui'></textarea>
 <br><br><br><br>
-<input type="search" id="liberacao" class="liberacao">
+<h3>Liberação pela Portaria Virtual:</h3>
+
+<p><strong>Liberação de visitantes do Global:</strong> O anfitrião, pertencente ao time do Facilities, BP ou às bandas V, IV, III, II, I, deverá realizar o convite do visitante pelo site 
+<a href="https://portaria-global.governarti.com.br/" target="_blank">https://portaria-global.governarti.com.br/</a>, informando os seguintes dados:</p>
+
+<ul>
+  <li>Nome completo</li>
+  <li>CPF (ou outro documento de identidade, se estrangeiro)</li>
+  <li>E-mail</li>
+  <li>Telefone</li>
+</ul>
+
+<p><strong>Liberação de visitantes do BEES:</strong> O anfitrião deve enviar um e-mail para 
+<a href="mailto:facilities.bees@ab-inbev.com">facilities.bees@ab-inbev.com</a> solicitando a liberação do visitante e informando os seguintes dados:</p>
+
+<ul>
+  <li>Nome completo</li>
+  <li>CPF (ou outro documento de identidade, se estrangeiro)</li>
+  <li>E-mail</li>
+  <li>Telefone</li>
+</ul>
+
+<p><strong>Próximo passo:</strong> Após o envio do convite, o visitante receberá um e-mail com um link para realizar o cadastro na Portaria Virtual. Após concluir o processo, ele receberá a autorização para acessar o escritório.</p>
+
+
 <br><br><br><br>
-<div id="pergunta">Chegou algum email d<textarea id="t1"></textarea><textarea id="t2"></textarea><br>solicitando liberação d<textarea id="t3"></textarea><textarea id="t4"></textarea>?</div><br>
-<button class="btn" id="botao-copiar" style="background:#cfc">Copiar</button><button class="btn" onclick="limparTextareas()" style="background:#f55">Limpar Campos</button>
 
-<script>
-document.getElementById('t1').placeholder = '@';
-document.getElementById('t2').placeholder = 'anfitrião';
-document.getElementById('t3').placeholder = '@';
-document.getElementById('t4').placeholder = 'visitante';
-
-document.getElementById('botao-copiar').addEventListener('click', function() {
-  let texto = `Chegou algum email d${document.getElementById('t1').value || document.getElementById('t1').placeholder} ${document.getElementById('t2').value || document.getElementById('t2').placeholder} solicitando liberação d${document.getElementById('t3').value || document.getElementById('t3').placeholder} ${document.getElementById('t4').value || document.getElementById('t4').placeholder}?`;
-  
-  navigator.clipboard.writeText(texto.replace(/\s+/g, ' ')).then(() => {
-  });
-});
-
-</script>
-<script>
-function limparTextareas() {
-    const textareas = document.querySelectorAll('#pergunta textarea');
-    textareas.forEach(textarea => {
-        textarea.value = '';
-    });
-}
-</script>
 <br><br><br><br>
 <div class="borda">
 <p>Atalhos:</p>
@@ -978,10 +940,6 @@ var interval = setInterval(function () { myFunction(); }, 1000);
         localStorage.setItem('textareaContent', textarea.value);
     });
 </script>
-    <button class="camera-toggle" onclick="toggleCamera()">
-    <i class="fas fa-camera"></i>
-    </button>
-    
     <div class="camera-container" id="cameraContainer">
     <video id="video" autoplay></video>
     <canvas id="canvas" width="300" height="400"></canvas>
@@ -1010,6 +968,7 @@ function toggleCamera() {
 
     if (cameraDiv.style.display === 'none' || cameraDiv.style.display === '') {
         cameraDiv.style.display = 'flex';
+        document.getElementById("botoes").style.display = "none";
         startCamera(); // Inicia a câmera somente quando abre
     } else {
         cameraDiv.style.display = 'none';
@@ -1023,6 +982,7 @@ function exitCamera() {
 
     if (cameraContainer) {
         cameraContainer.style.display = "none";
+        document.getElementById("botoes").style.display = "flex";
         stopCamera(); // Garante que a câmera seja desligada ao sair
     }
 }
@@ -1237,12 +1197,50 @@ function exitCamera() {
 
 
 </script>
-<button class="relatorio-botao" onclick="window.open('https://armandodecampos.github.io/Relat-rio-de-pessoas-por-departamentos/', '_blank')">
-  <i class="fas fa-file-alt"></i>
-</button>
-<button class="pesquisa-de-pessoas" 
-        onclick="window.open('https://armandodecampos.github.io/pesquisa-de-dados/', '_blank')">
-        <i class="fas fa-search"></i>
-</button>
+<div class="botoes" id="botoes">
+  <button  onclick="toggleCamera()">
+    <i class="fas fa-camera"></i>
+  </button>
+  <button  onclick="window.open('https://armandodecampos.github.io/Relat-rio-de-pessoas-por-departamentos/', '_blank')">
+    <i class="fas fa-file-alt"></i>
+  </button>
+  <button  onclick="window.open('https://armandodecampos.github.io/pesquisa-de-dados/', '_blank')">
+    <i class="fas fa-search"></i>
+  </button>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="pergunta">Chegou algum email d<textarea id="t1"></textarea><textarea id="t2"></textarea><br>solicitando liberação d<textarea id="t3"></textarea><textarea id="t4"></textarea>?</div><br>
+<button class="btn" id="botao-copiar" style="background:#cfc">Copiar</button><button class="btn" onclick="limparTextareas()" style="background:#f55">Limpar Campos</button>
+
+<script>
+document.getElementById('t1').placeholder = '@';
+document.getElementById('t2').placeholder = 'anfitrião';
+document.getElementById('t3').placeholder = '@';
+document.getElementById('t4').placeholder = 'visitante';
+
+document.getElementById('botao-copiar').addEventListener('click', function() {
+  let texto = `Chegou algum email d${document.getElementById('t1').value || document.getElementById('t1').placeholder} ${document.getElementById('t2').value || document.getElementById('t2').placeholder} solicitando liberação d${document.getElementById('t3').value || document.getElementById('t3').placeholder} ${document.getElementById('t4').value || document.getElementById('t4').placeholder}?`;
+  
+  navigator.clipboard.writeText(texto.replace(/\s+/g, ' ')).then(() => {
+  });
+});
+
+</script>
+<script>
+function limparTextareas() {
+    const textareas = document.querySelectorAll('#pergunta textarea');
+    textareas.forEach(textarea => {
+        textarea.value = '';
+    });
+}
+</script>
 </body>
 </html>
