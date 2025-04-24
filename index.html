@@ -12,6 +12,7 @@
     background:#ddd;
 	padding:1%;
     }
+    
     @media (orientation: landscape) {
     	body {
     		padding-right:5%;
@@ -19,6 +20,33 @@
         background:#ddd;
 	     }
     }
+    
+    /* Scrollbar para navegadores WebKit */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border: 2px solid #ddd;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Scrollbar para Firefox */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #eee;
+}
+
+    
     .btn{
 margin:auto;border-radius:5px;border: 2px outset #222;padding:10px;background:#ddd;font-weight:bold;color:#000;box-shadow: 1px 1px 4px 1px black;
     }
